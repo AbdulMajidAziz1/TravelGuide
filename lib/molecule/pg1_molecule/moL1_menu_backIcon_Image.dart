@@ -33,7 +33,7 @@ class MenuBack extends StatelessWidget {
             )
           ],
         ),
-        SizedBox(height: 40,),
+        SizedBox(height: 20,),
         const Center(
           child: Image(
               width: 100,

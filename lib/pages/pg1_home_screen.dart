@@ -30,22 +30,6 @@ class _HomeScreenState extends State<HomeScreen> {
               const SizedBox(
                 height: 20,
               ),
-              TravelFund(),
-              const SizedBox(
-                height: 20,
-              ),
-              const Column(
-                children: [
-                  Text(
-                    'Funds will not be taken from your account if the minimum ',
-                    style: textS1,
-                  ),
-                  Text(
-                    'number of 8 travellers is not reached! ',
-                    style: textS1,
-                  ),
-                ],
-              ),
               const SizedBox(
                 height: 40,
               ),

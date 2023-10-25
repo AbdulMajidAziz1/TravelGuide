@@ -57,6 +57,13 @@ const textS411 = TextStyle(
   color: Color(0xff757575)
 );
 
+const textS411G = TextStyle(
+    fontSize: 11,
+    fontWeight: FontWeight.w400,
+    fontFamily: 'Inter',
+    color: Color(0xff565560)
+);
+
 const textS411B = TextStyle(
   fontSize: 11,
   fontWeight: FontWeight.w400,
