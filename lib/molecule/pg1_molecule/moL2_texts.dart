@@ -19,16 +19,16 @@ class _MultiTextState extends State<MultiText> {
         SizedBox(
           height: 10,
         ),
-        Text('Your share of funding plan has been created. ',
+        const Text('Your share of funding plan has been created. ',
             style: textS416B),
-        SizedBox(
+        const SizedBox(
           height: 30,
         ),
-        Text('Your Share ', style: textS1),
-        SizedBox(
+        const Text('Your Share ', style: textS1),
+        const SizedBox(
           height: 10,
         ),
-        Text('\$6,250', style: textS632B),
+        const Text('\$6,250', style: textS632B),
         SizedBox(
           height: 27,
           width: 239,

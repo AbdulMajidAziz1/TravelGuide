@@ -3,7 +3,6 @@ import 'package:login/atoms/Constant/constant.dart';
 import 'package:login/atoms/Lines/bottom_line.dart';
 import 'package:login/molecule/pg1_molecule/moL1_menu_backIcon_Image.dart';
 import 'package:login/molecule/pg1_molecule/moL2_texts.dart';
-import 'package:login/molecule/pg1_molecule/moL3_switch_button.dart';
 import 'package:login/molecule/pg1_molecule/moL4_travel_fund.dart';
 import 'package:login/pages/pg3_funding_plan.dart';
 import '../atoms/buttons/button_multi_color.dart';
@@ -28,32 +27,41 @@ class _HomeScreenState extends State<HomeScreen> {
                 height: 24,
               ),
               const MultiText(),
-              const SwitchText(),
-              const SizedBox(height: 20,),
-              const TravelFund(),
-              const SizedBox(height: 20,),
+              const SizedBox(
+                height: 20,
+              ),
+              TravelFund(),
+              const SizedBox(
+                height: 20,
+              ),
               const Column(
                 children: [
-                  Text('Funds will not be taken from your account if the minimum ',
+                  Text(
+                    'Funds will not be taken from your account if the minimum ',
                     style: textS1,
                   ),
-                  Text('number of 8 travellers is not reached! ',
+                  Text(
+                    'number of 8 travellers is not reached! ',
                     style: textS1,
                   ),
                 ],
               ),
-              const SizedBox(height: 40,),
+              const SizedBox(
+                height: 40,
+              ),
               GestureDetector(
-                  onTap: (){
+                  onTap: () {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const FundingPlan())
-                    );
+                            builder: (context) => const FundingPlan()));
                   },
                   child: ButtonMulti(title: 'Save wish & view funding plan')),
-              const SizedBox(height: 20,),
+              const SizedBox(
+                height: 20,
+              ),
               const BottomLine(),
+
             ],
           )),
     );
