@@ -1,6 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <uses-permission android:name="android.permission.INTERNET"/>
     <application
-        android:label="travelling_guide"
+        android:label="Travel Jinni"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
