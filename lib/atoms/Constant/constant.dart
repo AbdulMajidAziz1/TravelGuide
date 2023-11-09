@@ -9,6 +9,12 @@ const textS904 = TextStyle(
     fontFamily: 'Inter',
     color: Color(0xff565560));
 
+const textS907 = TextStyle(
+    fontWeight: FontWeight.w700,
+    fontSize: 9,
+    fontFamily: 'Inter',
+    color: Color(0xff292929));
+
 const textS9043 = TextStyle(
     fontWeight: FontWeight.w400,
     fontSize: 9.35,
@@ -20,6 +26,12 @@ const textS3 = TextStyle(
     fontSize: 10,
     fontFamily: 'Inter',
     color: Color(0xff757575));
+
+const textS610 = TextStyle(
+    fontWeight: FontWeight.w600,
+    fontSize: 10,
+    fontFamily: 'Inter',
+    color: Color(0xff292929));
 
 const textS410bl = TextStyle(
     fontWeight: FontWeight.w400,
@@ -92,6 +104,13 @@ const textS12Bold = TextStyle(
     fontSize: 12,
     fontFamily: 'Inter',
     color: Color(0xff292929));
+
+const textS612HBlack = TextStyle(
+    fontWeight: FontWeight.w600,
+    fontSize: 12,
+    fontFamily: 'Inter',
+    color: Color(0xff565560));
+
 
 const textS612 = TextStyle(
     fontWeight: FontWeight.w600,

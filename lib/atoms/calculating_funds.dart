@@ -14,7 +14,7 @@ class CalculatingFunds extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Image(width: 38, height: 38, image: AssetImage(jiniLoaderImg)),
+                Image(width: 38, height: 38, image: AssetImage('assets/jinni-loader.gif')),
                 SizedBox(
                   width: 5,
                 ),

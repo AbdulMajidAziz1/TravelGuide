@@ -34,7 +34,9 @@ class _FundingPlanState extends State<FundingPlan> {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => const TravelBankScreen())),
+                          builder: (context) => const TravelBankScreen()
+                      )
+                  ),
                 }
             });
     super.initState();
@@ -108,36 +110,36 @@ class _FundingPlanState extends State<FundingPlan> {
                   child: const Stack(
                     children: [
                       CircularImg(
-                          pathP: 'assets/buddy.png',
+                          pathP: 'assets/image 1.png',
                           color1: Color(0xff94D0E4),
                           width1: 40,
                           height1: 40),
                       Positioned(
                           left: 20,
                           child: CircularImg(
-                              pathP: 'assets/buddy.png',
+                              pathP: 'assets/image 2.png',
                               color1: Color(0xffFFB292),
                               width1: 40,
                               height1: 40)),
                       Positioned(
                           left: 40,
                           child: CircularImg(
-                              pathP: 'assets/buddy.png',
-                              color1: Color(0xffE7BF9F),
+                              pathP: 'assets/image 3.png',
+                              color1: Color(0xffFFBAE9),
                               width1: 40,
                               height1: 40)),
                       Positioned(
                           left: 60,
                           child: CircularImg(
-                              pathP: 'assets/buddy.png',
+                              pathP: 'assets/image 4.png',
                               color1: Color(0xffE7BF9F),
                               width1: 40,
                               height1: 40)),
                       Positioned(
                           left: 80,
                           child: CircularImg(
-                              pathP: 'assets/buddy.png',
-                              color1: Color(0xffE7BF9F),
+                              pathP: 'assets/image 5.png',
+                              color1: Color(0xff59E1FF),
                               width1: 40,
                               height1: 40)),
                     ],
@@ -149,36 +151,29 @@ class _FundingPlanState extends State<FundingPlan> {
                   child: const Stack(
                     children: [
                       CircularImg(
-                          pathP: 'assets/buddy2.png',
-                          color1: Color(0xffECECEC),
+                          pathP: 'assets/image 6.png',
+                          color1: Color(0xffC4C4C4),
                           width1: 40,
                           height1: 40),
                       Positioned(
-                          left: 20,
+                          left: 27,
                           child: CircularImg(
-                              pathP: 'assets/buddy2.png',
-                              color1: Color(0xffECECEC),
+                              pathP: 'assets/image 7.png',
+                              color1: Color(0xffC4C4C4),
                               width1: 40,
                               height1: 40)),
                       Positioned(
-                          left: 40,
+                          left: 55,
                           child: CircularImg(
-                              pathP: 'assets/buddy2.png',
-                              color1: Color(0xffECECEC),
+                              pathP: 'assets/image 8.png',
+                              color1: Color(0xffDDDDDD),
                               width1: 40,
                               height1: 40)),
                       Positioned(
-                          left: 60,
+                          left: 85,
                           child: CircularImg(
-                              pathP: 'assets/buddy2.png',
-                              color1: Color(0xffECECEC),
-                              width1: 40,
-                              height1: 40)),
-                      Positioned(
-                          left: 80,
-                          child: CircularImg(
-                              pathP: 'assets/buddy2.png',
-                              color1: Color(0xffECECEC),
+                              pathP: 'assets/image 9.png',
+                              color1: Color(0xffC4C4C4),
                               width1: 40,
                               height1: 40)),
                     ],
@@ -266,7 +261,7 @@ class _FundingPlanState extends State<FundingPlan> {
                 Column(
                   children: [
                     const CircularImg(
-                        pathP: 'assets/buddy.png',
+                        pathP: 'assets/image 4.png',
                         color1: Color(0xffE7BF9F),
                         width1: 30,
                         height1: 30),
@@ -280,8 +275,8 @@ class _FundingPlanState extends State<FundingPlan> {
                     ? Column(
                         children: [
                           const CircularImg(
-                              pathP: 'assets/buddy2.png',
-                              color1: Color(0xffE7BF9F),
+                              pathP: 'assets/image 10.png',
+                              color1: Color(0xffFFBB59),
                               width1: 30,
                               height1: 30),
                           Text(
@@ -295,8 +290,8 @@ class _FundingPlanState extends State<FundingPlan> {
                     ? Column(
                         children: [
                           const CircularImg(
-                              pathP: 'assets/buddy.png',
-                              color1: Color(0xffE7BF9F),
+                              pathP: 'assets/image 3.png',
+                              color1: Color(0xffFFBAE9),
                               width1: 30,
                               height1: 30),
                           Text(
@@ -314,8 +309,8 @@ class _FundingPlanState extends State<FundingPlan> {
                             Column(
                               children: [
                                 CircularImg(
-                                    pathP: 'assets/buddy2.png',
-                                    color1: Color(0xffE7BF9F),
+                                    pathP: 'assets/image 1.png',
+                                    color1: Color(0xff94D0E4),
                                     width1: 30,
                                     height1: 30),
                                 Text(
@@ -326,18 +321,9 @@ class _FundingPlanState extends State<FundingPlan> {
                             ),
                             buddiesJoined >= 5
                                 ? Positioned(
-                                    left: 20,
+                                    left: 35,
                                     child: CircularImg(
-                                        pathP: 'assets/buddy.png',
-                                        color1: Color(0xffFFB292),
-                                        width1: 30,
-                                        height1: 30))
-                                : Container(),
-                            buddiesJoined >= 6
-                                ? Positioned(
-                                    left: 30,
-                                    child: CircularImg(
-                                        pathP: 'assets/buddy.png',
+                                        pathP: 'assets/image 2.png',
                                         color1: Color(0xffFFB292),
                                         width1: 30,
                                         height1: 30))
@@ -382,7 +368,7 @@ class _FundingPlanState extends State<FundingPlan> {
             style: textS614,
           ),
           const SizedBox(
-            height: 50,
+            height: 70,
           ),
           const BottomLine()
         ],

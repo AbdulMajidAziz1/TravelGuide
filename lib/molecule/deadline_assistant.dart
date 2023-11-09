@@ -1,3 +1,4 @@
+import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 
 class DeadLineAssistant extends StatelessWidget {
@@ -9,7 +10,7 @@ class DeadLineAssistant extends StatelessWidget {
     final index = 0;
     return SizedBox(
       width: fullWidth,
-      height: 600,
+      height: 540,
       child: ListView.builder(
           scrollDirection: Axis.vertical,
           itemCount: 11,
@@ -144,26 +145,30 @@ class DeadLineAssistant extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Text(
-                                "January, 23",
-                                style: TextStyle(
-                                  color: Color(0xFF757575),
-                                  fontSize: 10,
-                                  fontFamily: 'Inter',
-                                  fontWeight: FontWeight.w600,
-                                ),
-                              ),
+                              AnimatedTextKit(animatedTexts: [
+                                TyperAnimatedText(
+                                  "January, 23",
+                                  textStyle: TextStyle(
+                                    color: Color(0xFF757575),
+                                    fontSize: 10,
+                                    fontFamily: 'Inter',
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                                )
+                              ]),
                               Row(
                                 children: [
-                                  Text(
-                                    "\$35",
-                                    style: TextStyle(
-                                      color: Color(0xFF292929),
-                                      fontSize: 14,
-                                      fontFamily: 'Inter',
-                                      fontWeight: FontWeight.w500,
-                                    ),
-                                  ),
+                                  AnimatedTextKit(animatedTexts: [
+                                    TyperAnimatedText(
+                                        "£140",
+                                        textStyle: TextStyle(
+                                          color: Color(0xFF292929),
+                                          fontSize: 14,
+                                          fontFamily: 'Inter',
+                                          fontWeight: FontWeight.w600,
+                                        ),
+                                    )
+                                  ]),
                                 ],
                               )
                             ],
@@ -181,9 +186,23 @@ class DeadLineAssistant extends StatelessWidget {
                                   mainAxisAlignment: MainAxisAlignment.end,
                                   children: [
                                     Text(
-                                      "\$35",
+                                      "£0",
                                       style: TextStyle(
-                                        color: Color(0xFF757575),
+                                        color: Color(0xFFD0D0D5),
+                                        fontSize: 14,
+                                        fontFamily: 'Inter',
+                                        fontWeight: FontWeight.w400,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                Column(
+                                  mainAxisAlignment: MainAxisAlignment.end,
+                                  children: [
+                                    Text(
+                                      "£0",
+                                      style: TextStyle(
+                                        color: Color(0xFFD0D0D5),
                                         fontSize: 14,
                                         fontFamily: 'Inter',
                                         fontWeight: FontWeight.w600,
@@ -195,12 +214,12 @@ class DeadLineAssistant extends StatelessWidget {
                                   mainAxisAlignment: MainAxisAlignment.end,
                                   children: [
                                     Text(
-                                      "\$35",
+                                      "£101",
                                       style: TextStyle(
                                         color: Color(0xFF757575),
                                         fontSize: 14,
                                         fontFamily: 'Inter',
-                                        fontWeight: FontWeight.w600,
+                                        fontWeight: FontWeight.w400,
                                       ),
                                     ),
                                   ],
@@ -209,26 +228,12 @@ class DeadLineAssistant extends StatelessWidget {
                                   mainAxisAlignment: MainAxisAlignment.end,
                                   children: [
                                     Text(
-                                      "\$35",
+                                      "£0",
                                       style: TextStyle(
-                                        color: Color(0xFF757575),
+                                        color: Color(0xFFD0D0D5),
                                         fontSize: 14,
                                         fontFamily: 'Inter',
-                                        fontWeight: FontWeight.w600,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                                Column(
-                                  mainAxisAlignment: MainAxisAlignment.end,
-                                  children: [
-                                    Text(
-                                      "\$35",
-                                      style: TextStyle(
-                                        color: Color(0xFF757575),
-                                        fontSize: 14,
-                                        fontFamily: 'Inter',
-                                        fontWeight: FontWeight.w600,
+                                        fontWeight: FontWeight.w400,
                                       ),
                                     ),
                                   ],

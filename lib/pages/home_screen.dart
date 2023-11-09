@@ -20,36 +20,53 @@ class _HomeScreenState extends State<HomeScreen> {
     return SafeArea(
       child: Scaffold(
           backgroundColor: Colors.white,
-          body: SingleChildScrollView(
-            child: Column(
-              children: [
-                const MenuBack(
-                  isHomeScreen: true,
+          body: Column(
+            children: [
+
+              Expanded(
+                flex: 5,
+                child: Column(
+                  children: [
+                    const MenuBack(
+                      isHomeScreen: true,
+                    ),
+                    SizedBox(
+                      height: 24,
+                    ),
+                  ],
                 ),
-                SizedBox(
-                  height: 24,
+              ),
+              Expanded(
+                flex: 9,
+                child: SingleChildScrollView(
+                  child: Column(
+                    children: [
+                      const MultiText(),
+                      const SizedBox(
+                        height: 50,
+                      )
+                    ],
+                  ),
                 ),
-                const MultiText(),
-                const SizedBox(
-                  height: 20,
+              ),
+              Expanded(
+                flex: 2,
+                child: Column(
+                  children: [
+                    SizedBox(height: 30,),
+                    GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const FundingPlan()));
+                        },
+                        child: ButtonMulti(title: 'Save wish & view funding plan')),
+                  ],
                 ),
-                const SizedBox(
-                  height: 40,
-                ),
-                GestureDetector(
-                    onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const FundingPlan()));
-                    },
-                    child: ButtonMulti(title: 'Save wish & view funding plan')),
-                const SizedBox(
-                  height: 20,
-                ),
-                // const BottomLine(),
-              ],
-            ),
+              )
+              // const BottomLine(),
+            ],
           )),
     );
   }
