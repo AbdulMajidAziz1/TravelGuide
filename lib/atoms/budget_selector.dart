@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../../atoms/Constant/constant.dart';
 import 'dart:math' as math;
@@ -16,6 +17,7 @@ class _BudgetSelectorState extends State<BudgetSelector> {
   @override
   Widget build(BuildContext context) {
     final formattedNumber = intl.NumberFormat.decimalPattern().format(var2);
+    final numericValue = int.tryParse(formattedNumber.replaceAll(',', ''));
     return Column(
       children: [
         Text(
@@ -43,6 +45,58 @@ class _BudgetSelectorState extends State<BudgetSelector> {
               '1 adult, 0 Children',
               style: textS1,
             ),
+            // if (var2 < 4000)
+            //   PopupMenuButton(
+            //     constraints: const BoxConstraints.tightFor(
+            //       height: 635,
+            //       width: double.infinity,
+            //     ),
+            //     color: const Color(0xffFFFFFF),
+            //     shape: const RoundedRectangleBorder(
+            //       borderRadius: BorderRadius.only(
+            //         topLeft: Radius.circular(20),
+            //         topRight: Radius.circular(20),
+            //       ),
+            //     ),
+            //     child: const Padding(
+            //       padding: EdgeInsets.only(top: 10),
+            //       child: Text(
+            //         'Change',
+            //         // Assuming textS2 is defined somewhere in your code
+            //         style: textS2,
+            //       ),
+            //     ),
+            //     itemBuilder: (context) => [
+            //       PopupMenuItem(
+            //         value: 1,
+            //         child: StatefulBuilder(
+            //           builder: (context, setState) {
+            //             return Container();
+            //           },
+            //         ),
+            //       ),
+            //     ],
+            //   ),
+            // var2 < 4000 ? PopupMenuButton(
+            //     constraints: const BoxConstraints.tightFor(
+            //       height: 635,
+            //       width: double.infinity,
+            //     ),
+            //     color: const Color(0xffFFFFFF),
+            //     shape: const RoundedRectangleBorder(
+            //         borderRadius: BorderRadius.only(
+            //             topLeft: Radius.circular(20),
+            //             topRight: Radius.circular(20))),
+            //     itemBuilder: (context) => [
+            //       PopupMenuItem(
+            //           value: 1,
+            //           child: StatefulBuilder(
+            //             builder: (context, setState) {
+            //               return Container(child: Text('Majid Aziz'));
+            //             },
+            //           )),
+            //     ]) :
+            // Container()
           ],
         ),
         SizedBox(
@@ -62,6 +116,9 @@ class _BudgetSelectorState extends State<BudgetSelector> {
             onChanged: (double value) {
               setState(() {
                 var2 = value.round();
+                if (var2 < 4000) {
+                  showFormattedNumberDialog(context);
+                }
               });
             },
           ),
@@ -155,4 +212,55 @@ class _BudgetSelectorState extends State<BudgetSelector> {
       ],
     );
   }
+}
+
+void showFormattedNumberDialog(BuildContext context) {
+  showDialog(
+    context: context,
+    builder: (BuildContext context) => new AlertDialog(
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(32))),
+      contentPadding: EdgeInsets.fromLTRB(4, 30, 0, 0),
+      content: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            SizedBox(
+              height: 16,
+              width: 16,
+              child: Image(
+                  image: AssetImage('assets/warning.png',
+                  )
+              ),
+            ),
+            Text.rich(
+              TextSpan(
+                children: [
+                  TextSpan(
+                    text: 'Based on our calculations,we \nbelieve that a minimum estimated\nbudget of ',
+                    style: textS12,
+                  ),
+                  TextSpan(
+                    text: ' \$4,000 ',
+                    style: textS12Bold,
+                  ),
+                  TextSpan(
+                    text: 'will be necessary\nfor your essential bookings during \nthis trip.',
+                    style: textS12,
+                  ),
+                ],
+              ),
+            ),
+            Icon(CupertinoIcons.clear_circled)
+          ],
+        ),
+      actions: <Widget>[
+          TextButton(
+            onPressed: () {
+              Navigator.of(context).pop(); // Close the dialog
+            },
+            child: Center(
+                child: Text('Change budget split')),
+          ),
+        ],
+    )
+  );
 }

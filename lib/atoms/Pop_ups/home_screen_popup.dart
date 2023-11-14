@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:login/atoms/buttons/button_multi_color.dart';
 
 class HomeScreenPopup extends StatefulWidget {
   const HomeScreenPopup({super.key});
@@ -58,8 +59,15 @@ class _HomeScreenPopupState extends State<HomeScreenPopup> {
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
     return Container(
-      height: 800,
+      height: 636,
       width: screenWidth,
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.only(
+          topRight: Radius.circular(20.0),
+          topLeft: Radius.circular(20.0),// Set the top-right radius
+        ),
+      ),
       child: Column(
         mainAxisAlignment:
         MainAxisAlignment.end,
@@ -827,73 +835,11 @@ class _HomeScreenPopupState extends State<HomeScreenPopup> {
                       const SizedBox(
                         height: 32,
                       ),
-                      Container(
-                        width: 268,
-                        height: 56,
-                        padding:
-                        const EdgeInsets
-                            .all(
-                            10),
-                        decoration:
-                        ShapeDecoration(
-                          gradient:
-                          const LinearGradient(
-                            begin: Alignment(
-                                0.99,
-                                -0.17),
-                            end: Alignment(
-                                -0.99,
-                                0.17),
-                            colors: [
-                              Color(
-                                  0xFFD26783),
-                              Color(
-                                  0xFFBA57B3),
-                              Color(
-                                  0xFF8855C9)
-                            ],
-                          ),
-                          shape:
-                          RoundedRectangleBorder(
-                            side: const BorderSide(
-                                width:
-                                1,
-                                color: Color(
-                                    0xFFD26783)),
-                            borderRadius:
-                            BorderRadius.circular(
-                                32),
-                          ),
-                        ),
-                        child:
-                        const Row(
-                          mainAxisSize:
-                          MainAxisSize
-                              .min,
-                          mainAxisAlignment:
-                          MainAxisAlignment
-                              .center,
-                          crossAxisAlignment:
-                          CrossAxisAlignment
-                              .center,
-                          children: [
-                            Text(
-                              'Next',
-                              style:
-                              TextStyle(
-                                color: Colors
-                                    .white,
-                                fontSize:
-                                16,
-                                fontFamily:
-                                'Inter',
-                                fontWeight:
-                                FontWeight.w600,
-                              ),
-                            ),
-                          ],
-                        ),
-                      )
+                      GestureDetector(
+                          onTap: (){
+                            Navigator.of(context).pop();
+                          },
+                          child: ButtonMulti(title: 'Next'))
                     ],
                   ),
                 ),

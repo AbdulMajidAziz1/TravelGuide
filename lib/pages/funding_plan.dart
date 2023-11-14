@@ -11,6 +11,8 @@ import 'dart:async';
 
 import 'package:login/pages/travel_bank.dart';
 
+import '../atoms/Lines/white_line.dart';
+
 class FundingPlan extends StatefulWidget {
   const FundingPlan({super.key});
 
@@ -19,7 +21,7 @@ class FundingPlan extends StatefulWidget {
 }
 
 class _FundingPlanState extends State<FundingPlan> {
-  var buddiesJoined = 7;
+  var buddiesJoined = 0;
   var _timer;
   @override
   void initState() {
@@ -148,34 +150,40 @@ class _FundingPlanState extends State<FundingPlan> {
                 Container(
                   height: 40,
                   width: 130,
-                  child: const Stack(
+                  child: Stack(
                     children: [
                       CircularImg(
                           pathP: 'assets/image 6.png',
                           color1: Color(0xffC4C4C4),
                           width1: 40,
                           height1: 40),
-                      Positioned(
+                      buddiesJoined >= 2
+                          ? Positioned(
                           left: 27,
                           child: CircularImg(
                               pathP: 'assets/image 7.png',
                               color1: Color(0xffC4C4C4),
                               width1: 40,
-                              height1: 40)),
-                      Positioned(
+                              height1: 40))
+                          : Container(),
+                      buddiesJoined >= 3
+                          ? Positioned(
                           left: 55,
                           child: CircularImg(
                               pathP: 'assets/image 8.png',
                               color1: Color(0xffDDDDDD),
                               width1: 40,
-                              height1: 40)),
-                      Positioned(
+                              height1: 40))
+                          : Container(),
+                      buddiesJoined >= 4
+                          ? Positioned(
                           left: 85,
                           child: CircularImg(
                               pathP: 'assets/image 9.png',
                               color1: Color(0xffC4C4C4),
                               width1: 40,
-                              height1: 40)),
+                              height1: 40))
+                          : Container(),
                     ],
                   ),
                 ),
@@ -239,10 +247,10 @@ class _FundingPlanState extends State<FundingPlan> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 const SingleLine(),
-                buddiesJoined >= 3 ? SingleLine() : EmptyLine(),
-                buddiesJoined >= 4 ? SingleLine() : EmptyLine(),
-                buddiesJoined >= 6 ? SingleLine() : EmptyLine(),
-                buddiesJoined >= 8 ? SingleLine() : EmptyLine(),
+                buddiesJoined >= 2 ? SingleLine() : EmptyLine(),
+                buddiesJoined == 2 ? EmptyLine() : buddiesJoined < 2 ? WhiteLine(): SingleLine(),
+                buddiesJoined == 3 ? EmptyLine() : buddiesJoined < 3 ? WhiteLine(): SingleLine(),
+                buddiesJoined == 4 ? EmptyLine() : buddiesJoined < 4 ? WhiteLine(): SingleLine(),
               ],
             ),
           ),
@@ -251,10 +259,6 @@ class _FundingPlanState extends State<FundingPlan> {
           ),
           Container(
             width: 166,
-            // constraints: BoxConstraints(
-            //     maxWidth: 200, // Set your maximum width here
-
-            //     minWidth: 166),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
