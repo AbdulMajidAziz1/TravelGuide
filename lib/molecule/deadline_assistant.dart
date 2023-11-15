@@ -190,7 +190,7 @@ class DeadLineAssistant extends StatelessWidget {
                                     Text(
                                       index == 0 ? "£0" : "£169",
                                       style: TextStyle(
-                                        color: Color(0xFFD0D0D5),
+                                        color: index == 0 ? Color(0xFFD0D0D5) : Color(0xFF757575),
                                         fontSize: 14,
                                         fontFamily: 'Inter',
                                         fontWeight: FontWeight.w400,
@@ -204,10 +204,10 @@ class DeadLineAssistant extends StatelessWidget {
                                     Text(
                                       index == 0 ? "£0" : "£89",
                                       style: TextStyle(
-                                        color: Color(0xFFD0D0D5),
+                                        color: index == 0 ? Color(0xFFD0D0D5) : Color(0xFF757575),
                                         fontSize: 14,
                                         fontFamily: 'Inter',
-                                        fontWeight: FontWeight.w600,
+                                        fontWeight: FontWeight.w400,
                                       ),
                                     ),
                                   ],
@@ -232,7 +232,7 @@ class DeadLineAssistant extends StatelessWidget {
                                     Text(
                                       index == 0 ? "£0" : "£44",
                                       style: TextStyle(
-                                        color: Color(0xFFD0D0D5),
+                                        color: index == 0 ? Color(0xFFD0D0D5) : Color(0xFF757575),
                                         fontSize: 14,
                                         fontFamily: 'Inter',
                                         fontWeight: FontWeight.w400,
