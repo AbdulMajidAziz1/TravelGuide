@@ -1,5 +1,8 @@
+import 'package:countup/countup.dart';
 import 'package:flutter/material.dart';
 import 'package:login/atoms/buttons/button_multi_color.dart';
+
+import '../Constant/constant.dart';
 
 class HomeScreenPopup extends StatefulWidget {
   const HomeScreenPopup({super.key});
@@ -42,18 +45,18 @@ class _HomeScreenPopupState extends State<HomeScreenPopup> {
     '\$35',
     '\$35',
   ];
-  final updatedPlanNumbers = [
-    '\$350',
-    '\$456',
-    '\$456',
-    '\$114',
-    '\$114',
-    '\$35',
-    '\$35',
-    '\$35',
-    '\$35',
-    '\$35',
-    '\$35',
+  final List<double> updatedPlanNumbers = [
+    350,
+    114,
+    114,
+    114,
+    114,
+    35,
+    35,
+    35,
+    35,
+    35,
+    35,
   ];
   @override
   Widget build(BuildContext context) {
@@ -389,9 +392,11 @@ class _HomeScreenPopupState extends State<HomeScreenPopup> {
                                                                     mainAxisAlignment: MainAxisAlignment.center,
                                                                     crossAxisAlignment: CrossAxisAlignment.center,
                                                                     children: [
-                                                                      Text(
-                                                                        '${index + 1}',
-                                                                        textAlign: TextAlign.center,
+                                                                      Countup(
+                                                                          begin: 0,
+                                                                          end: index.toDouble() + 1,
+                                                                          duration: Duration(seconds: 2),
+                                                                          separator: ',',
                                                                         style: TextStyle(
                                                                           color: index == 0 ? const Color(0xFF32CB5E) : Colors.black,
                                                                           fontSize: 10,
@@ -442,15 +447,15 @@ class _HomeScreenPopupState extends State<HomeScreenPopup> {
                                                             mainAxisAlignment: MainAxisAlignment.center,
                                                             crossAxisAlignment: CrossAxisAlignment.center,
                                                             children: [
-                                                              Text(
-                                                                previousPlanNumbers[index],
-                                                                textAlign: TextAlign.center,
-                                                                style: TextStyle(
-                                                                  color: const Color(0xFF292929),
-                                                                  fontSize: 14,
-                                                                  fontFamily: 'Inter',
-                                                                  fontWeight: index == 0 ? FontWeight.w600 : FontWeight.w400,
-                                                                ),
+                                                              Text('£',
+                                                                  style: index == 0 ? textS614 : textS14
+                                                              ),
+                                                              Countup(
+                                                                  begin: 0,
+                                                                  end: updatedPlanNumbers[index],
+                                                                  duration: Duration(seconds: 2),
+                                                                  separator: ',',
+                                                                  style: index == 0 ? textS614 : textS14
                                                               ),
                                                               const SizedBox(width: 4),
                                                               Transform(
@@ -729,9 +734,11 @@ class _HomeScreenPopupState extends State<HomeScreenPopup> {
                                                           mainAxisAlignment: MainAxisAlignment.center,
                                                           crossAxisAlignment: CrossAxisAlignment.center,
                                                           children: [
-                                                            Text(
-                                                              '${index + 1}',
-                                                              textAlign: TextAlign.center,
+                                                            Countup(
+                                                              begin: 0,
+                                                              end: index.toDouble() + 1,
+                                                              duration: Duration(seconds: 2),
+                                                              separator: ',',
                                                               style: TextStyle(
                                                                 color: index == 0 ? const Color(0xFF32CB5E) : Colors.black,
                                                                 fontSize: 10,
@@ -782,15 +789,15 @@ class _HomeScreenPopupState extends State<HomeScreenPopup> {
                                                   mainAxisAlignment: MainAxisAlignment.center,
                                                   crossAxisAlignment: CrossAxisAlignment.center,
                                                   children: [
-                                                    Text(
-                                                      updatedPlanNumbers[index],
-                                                      textAlign: TextAlign.center,
-                                                      style: TextStyle(
-                                                        color: Color(0xFF292929),
-                                                        fontSize: 14,
-                                                        fontFamily: 'Inter',
-                                                        fontWeight: FontWeight.w600,
-                                                      ),
+                                                    Text('£',
+                                                        style: index == 0 ? textS614 : textS14
+                                                    ),
+                                                    Countup(
+                                                        begin: 0,
+                                                        end: updatedPlanNumbers[index],
+                                                        duration: Duration(seconds: 2),
+                                                        separator: ',',
+                                                        style: index == 0 ? textS614 : textS14
                                                     ),
                                                     const SizedBox(width: 4),
                                                     Transform(

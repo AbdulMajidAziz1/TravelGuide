@@ -1,3 +1,4 @@
+import 'package:countup/countup.dart';
 import 'package:flutter/material.dart';
 import 'package:login/atoms/Constant/constant.dart';
 import 'package:login/atoms/Lines/bottom_line.dart';
@@ -5,6 +6,7 @@ import 'package:login/atoms/Lines/popup_line.dart';
 import 'package:login/atoms/Pop_ups/travel_bank_popup.dart';
 import 'package:login/molecule/all_travels_topup.dart';
 import 'package:login/molecule/deadline_assistant.dart';
+import 'package:login/molecule/donut_chart.dart';
 import 'package:login/molecule/pending_resolutions.dart';
 import 'package:login/molecule/pg1_molecule/menu_bar.dart';
 import 'package:login/molecule/pg1_molecule/moL2_texts.dart';
@@ -79,7 +81,14 @@ class _TravelBankScreenState extends State<TravelBankScreen> {
                     SizedBox(
                       height: 12,
                     ),
-                    AllTravelsTopUp(),
+                    Container(
+                        width: 390,
+                        height: 296,
+                        decoration: BoxDecoration(
+                          color: Color(0xffFFFFFF),
+                          borderRadius: BorderRadius.circular(4),
+                        ),
+                        child: DonutChart()),
                     SizedBox(
                       height: 24,
                     ),
@@ -283,8 +292,7 @@ class _TravelBankScreenState extends State<TravelBankScreen> {
                                                                               double>(
                                                                           begin:
                                                                               0.0,
-                                                                          end:
-                                                                              progressValue),
+                                                                          end: progressValue),
                                                                       duration: const Duration(
                                                                           milliseconds:
                                                                               1000),
@@ -337,13 +345,13 @@ class _TravelBankScreenState extends State<TravelBankScreen> {
                                                                         CrossAxisAlignment
                                                                             .center,
                                                                     children: [
-                                                                      Text(
-                                                                        '${index + 1}',
-                                                                        textAlign: TextAlign.center,
+                                                                      Countup(
+                                                                        begin: 0,
+                                                                        end: index.toDouble() + 1,
+                                                                        duration: Duration(seconds: 2),
+                                                                        separator: ',',
                                                                         style: TextStyle(
-                                                                          color: index == 0
-                                                                              ? const Color(0xFF32CB5E)
-                                                                              : Colors.black,
+                                                                          color: index == 0 ? const Color(0xFF32CB5E) : Colors.black,
                                                                           fontSize: 10,
                                                                           fontFamily: 'Inter',
                                                                           fontWeight: FontWeight.w600,
@@ -379,9 +387,7 @@ class _TravelBankScreenState extends State<TravelBankScreen> {
                                                             children: [
                                                               Text(
                                                                 '${allMonths[index]}, 23',
-                                                                textAlign:
-                                                                    TextAlign
-                                                                        .center,
+                                                                textAlign: TextAlign.center,
                                                                 style:
                                                                     TextStyle(
                                                                   color: Color(
@@ -405,21 +411,16 @@ class _TravelBankScreenState extends State<TravelBankScreen> {
                                                             mainAxisAlignment: MainAxisAlignment.center,
                                                             crossAxisAlignment: CrossAxisAlignment.center,
                                                             children: [
-                                                              Text(
-                                                                index == 0
-                                                                    ? '\$350'
-                                                                    : '\$114',
-                                                                textAlign:
-                                                                    TextAlign.center,
-                                                                style:
-                                                                    TextStyle(
-                                                                  color: const Color(0xFF292929),
-                                                                  fontSize: 14,
-                                                                  fontFamily: 'Inter',
-                                                                  fontWeight: index == 0
-                                                                      ? FontWeight.w600
-                                                                      : FontWeight.w400,
-                                                                ),
+                                                              Text('£',
+                                                                  style: index == 0 ? textS614 : textS14
+                                                              ),
+                                                              Countup(
+                                                                  begin: 0,
+                                                                  end: index == 0 ? 350 : 114,
+                                                                  duration: Duration(seconds: 2),
+                                                                  separator: ',',
+                                                                  textAlign: TextAlign.center,
+                                                                  style: index == 0 ? textS614 : textS14
                                                               ),
                                                               const SizedBox(
                                                                   width: 4),

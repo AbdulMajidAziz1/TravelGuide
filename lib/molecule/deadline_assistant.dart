@@ -1,5 +1,8 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
+import 'package:countup/countup.dart';
 import 'package:flutter/material.dart';
+
+import '../atoms/Constant/constant.dart';
 
 class DeadLineAssistant extends StatelessWidget {
   const DeadLineAssistant({super.key});
@@ -116,13 +119,13 @@ class DeadLineAssistant extends StatelessWidget {
                                             crossAxisAlignment:
                                                 CrossAxisAlignment.center,
                                             children: [
-                                              Text(
-                                                '${index + 1}',
-                                                textAlign: TextAlign.center,
+                                              Countup(
+                                                begin: 0,
+                                                end: index.toDouble() + 1,
+                                                duration: Duration(seconds: 2),
+                                                separator: ',',
                                                 style: TextStyle(
-                                                  color: index == 0
-                                                      ? const Color(0xFF32CB5E)
-                                                      : Colors.black,
+                                                  color: index == 0 ? const Color(0xFF32CB5E) : Colors.black,
                                                   fontSize: 10,
                                                   fontFamily: 'Inter',
                                                   fontWeight: FontWeight.w600,
@@ -158,17 +161,16 @@ class DeadLineAssistant extends StatelessWidget {
                               ]),
                               Row(
                                 children: [
-                                  AnimatedTextKit(animatedTexts: [
-                                    TyperAnimatedText(
-                                        "£140",
-                                        textStyle: TextStyle(
-                                          color: Color(0xFF292929),
-                                          fontSize: 14,
-                                          fontFamily: 'Inter',
-                                          fontWeight: FontWeight.w600,
-                                        ),
-                                    )
-                                  ]),
+                                  Text('£',
+                                      style: textS614
+                                  ),
+                                  Countup(
+                                      begin: 0,
+                                      end: index == 0 ? 350 : 403,
+                                      duration: Duration(seconds: 2),
+                                      separator: ',',
+                                      style: textS614
+                                  ),
                                 ],
                               )
                             ],
@@ -186,7 +188,7 @@ class DeadLineAssistant extends StatelessWidget {
                                   mainAxisAlignment: MainAxisAlignment.end,
                                   children: [
                                     Text(
-                                      "£0",
+                                      index == 0 ? "£0" : "£169",
                                       style: TextStyle(
                                         color: Color(0xFFD0D0D5),
                                         fontSize: 14,
@@ -200,7 +202,7 @@ class DeadLineAssistant extends StatelessWidget {
                                   mainAxisAlignment: MainAxisAlignment.end,
                                   children: [
                                     Text(
-                                      "£0",
+                                      index == 0 ? "£0" : "£89",
                                       style: TextStyle(
                                         color: Color(0xFFD0D0D5),
                                         fontSize: 14,
@@ -214,7 +216,7 @@ class DeadLineAssistant extends StatelessWidget {
                                   mainAxisAlignment: MainAxisAlignment.end,
                                   children: [
                                     Text(
-                                      "£101",
+                                      index == 0 ? "£350" : "£101",
                                       style: TextStyle(
                                         color: Color(0xFF757575),
                                         fontSize: 14,
@@ -228,7 +230,7 @@ class DeadLineAssistant extends StatelessWidget {
                                   mainAxisAlignment: MainAxisAlignment.end,
                                   children: [
                                     Text(
-                                      "£0",
+                                      index == 0 ? "£0" : "£44",
                                       style: TextStyle(
                                         color: Color(0xFFD0D0D5),
                                         fontSize: 14,

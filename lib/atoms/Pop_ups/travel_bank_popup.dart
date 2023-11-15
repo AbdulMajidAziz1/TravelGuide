@@ -38,10 +38,15 @@ class _TravelBankPopupState extends State<TravelBankPopup> {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Container(
-          height:
-          widgetsHeight - 50,
+          height: widgetsHeight - 50,
           width: screenWidth,
-          color: Colors.white,
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(20),
+              topRight: Radius.circular(20),
+            ),
+          ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -228,12 +233,12 @@ class _TravelBankPopupState extends State<TravelBankPopup> {
                                         mainAxisAlignment: MainAxisAlignment.end,
                                         children: [
                                           Text(
-                                            "£0",
+                                            "\$1520",
                                             style: TextStyle(
-                                              color: Color(0xFFD0D0D5),
+                                              color: Color(0xFF007AFF),
                                               fontSize: 14,
                                               fontFamily: 'Inter',
-                                              fontWeight: FontWeight.w600,
+                                              fontWeight: FontWeight.w400,
                                             ),
                                           ),
                                         ],
@@ -242,12 +247,12 @@ class _TravelBankPopupState extends State<TravelBankPopup> {
                                         mainAxisAlignment: MainAxisAlignment.end,
                                         children: [
                                           Text(
-                                            "£0",
+                                            "\$800",
                                             style: TextStyle(
-                                              color: Color(0xFFD0D0D5),
+                                              color: Color(0xFF007AFF),
                                               fontSize: 14,
                                               fontFamily: 'Inter',
-                                              fontWeight: FontWeight.w600,
+                                              fontWeight: FontWeight.w400,
                                             ),
                                           ),
                                         ],
@@ -270,12 +275,12 @@ class _TravelBankPopupState extends State<TravelBankPopup> {
                                         mainAxisAlignment: MainAxisAlignment.end,
                                         children: [
                                           Text(
-                                            "£0",
+                                            "\$400",
                                             style: TextStyle(
-                                              color: Color(0xFFD0D0D5),
+                                              color: Color(0xFF007AFF),
                                               fontSize: 14,
                                               fontFamily: 'Inter',
-                                              fontWeight: FontWeight.w600,
+                                              fontWeight: FontWeight.w400,
                                             ),
                                           ),
                                         ],
@@ -327,35 +332,7 @@ class _TravelBankPopupState extends State<TravelBankPopup> {
                                         mainAxisAlignment: MainAxisAlignment.end,
                                         children: [
                                           Text(
-                                            "0%",
-                                            style: TextStyle(
-                                              color: Color(0xFFD0D0D5),
-                                              fontSize: 14,
-                                              fontFamily: 'Inter',
-                                              fontWeight: FontWeight.w600,
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                      Column(
-                                        mainAxisAlignment: MainAxisAlignment.end,
-                                        children: [
-                                          Text(
-                                            "0%",
-                                            style: TextStyle(
-                                              color: Color(0xFFD0D0D5),
-                                              fontSize: 14,
-                                              fontFamily: 'Inter',
-                                              fontWeight: FontWeight.w600,
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                      Column(
-                                        mainAxisAlignment: MainAxisAlignment.end,
-                                        children: [
-                                          Text(
-                                            "100%",
+                                            "38%",
                                             style: TextStyle(
                                               color: Color(0xFF007AFF),
                                               fontSize: 14,
@@ -369,12 +346,40 @@ class _TravelBankPopupState extends State<TravelBankPopup> {
                                         mainAxisAlignment: MainAxisAlignment.end,
                                         children: [
                                           Text(
-                                            "0%",
+                                            "20%",
                                             style: TextStyle(
-                                              color: Color(0xFFD0D0D5),
+                                              color: Color(0xFF007AFF),
                                               fontSize: 14,
                                               fontFamily: 'Inter',
-                                              fontWeight: FontWeight.w600,
+                                              fontWeight: FontWeight.w400,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                      Column(
+                                        mainAxisAlignment: MainAxisAlignment.end,
+                                        children: [
+                                          Text(
+                                            "32%",
+                                            style: TextStyle(
+                                              color: Color(0xFF007AFF),
+                                              fontSize: 14,
+                                              fontFamily: 'Inter',
+                                              fontWeight: FontWeight.w400,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                      Column(
+                                        mainAxisAlignment: MainAxisAlignment.end,
+                                        children: [
+                                          Text(
+                                            "10%",
+                                            style: TextStyle(
+                                              color: Color(0xFF007AFF),
+                                              fontSize: 14,
+                                              fontFamily: 'Inter',
+                                              fontWeight: FontWeight.w400,
                                             ),
                                           ),
                                         ],

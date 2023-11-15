@@ -1,5 +1,7 @@
+import 'package:countup/countup.dart';
 import 'package:flutter/material.dart';
 import 'package:login/atoms/Constant/constant.dart';
+import 'package:login/atoms/Pop_ups/text_in_circle.dart';
 
 import '../buttons/button_multi_color.dart';
 import '../circular_img.dart';
@@ -26,18 +28,18 @@ class _AutomatedPopupState extends State<AutomatedPopup> {
     'November',
     'December'
   ];
-  final previousPlanNumbers = [
-    '£350',
-    '£114',
-    '£114',
-    '£114',
-    '£114',
-    '£35',
-    '£35',
-    '£35',
-    '£35',
-    '£35',
-    '£35',
+  final List<double> previousPlanNumbers = [
+    350,
+    114,
+    114,
+    114,
+    114,
+    35,
+    35,
+    35,
+    35,
+    35,
+    35,
   ];
   @override
   Widget build(BuildContext context) {
@@ -315,9 +317,11 @@ class _AutomatedPopupState extends State<AutomatedPopup> {
                                                                   mainAxisAlignment: MainAxisAlignment.center,
                                                                   crossAxisAlignment: CrossAxisAlignment.center,
                                                                   children: [
-                                                                    Text(
-                                                                      '${index + 1}',
-                                                                      textAlign: TextAlign.center,
+                                                                    Countup(
+                                                                      begin: 0,
+                                                                      end: index.toDouble() + 1,
+                                                                      duration: Duration(seconds: 2),
+                                                                      separator: ',',
                                                                       style: TextStyle(
                                                                         color: index == 0 ? const Color(0xFF32CB5E) : Colors.black,
                                                                         fontSize: 10,
@@ -368,15 +372,16 @@ class _AutomatedPopupState extends State<AutomatedPopup> {
                                                           mainAxisAlignment: MainAxisAlignment.center,
                                                           crossAxisAlignment: CrossAxisAlignment.center,
                                                           children: [
-                                                            Text(
-                                                              previousPlanNumbers[index],
-                                                              textAlign: TextAlign.center,
-                                                              style: TextStyle(
-                                                                color: const Color(0xFF292929),
-                                                                fontSize: 14,
-                                                                fontFamily: 'Inter',
-                                                                fontWeight: index == 0 ? FontWeight.w600 : FontWeight.w400,
-                                                              ),
+                                                            // TextCircle(),
+                                                            Text('£',
+                                                                style: index == 0 ? textS614 : textS14
+                                                            ),
+                                                            Countup(
+                                                                begin: 0,
+                                                                end: previousPlanNumbers[index],
+                                                                duration: Duration(seconds: 2),
+                                                                separator: ',',
+                                                                style: index == 0 ? textS614 : textS14
                                                             ),
                                                             const SizedBox(width: 4),
                                                             Transform(
@@ -414,7 +419,6 @@ class _AutomatedPopupState extends State<AutomatedPopup> {
                                           const SizedBox(
                                             width: 45,
                                           ),
-
                                         ],
                                       );
                                     }),
