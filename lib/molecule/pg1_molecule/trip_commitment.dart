@@ -16,7 +16,7 @@ class _TripCommitmentState extends State<TripCommitment> {
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
     return Container(
-      width: 344,
+      width: screenWidth - 40,
       height: 196,
       decoration: BoxDecoration(
         color: Color(0xffFBFBFC),
@@ -39,8 +39,8 @@ class _TripCommitmentState extends State<TripCommitment> {
           SizedBox(
             height: 5,
           ),
-          const SizedBox(
-            width: 312,
+          SizedBox(
+            width: screenWidth - 72,
             height: 58,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -61,21 +61,22 @@ class _TripCommitmentState extends State<TripCommitment> {
                             pathP: 'assets/wonder.png',
                             color1: Color(0xff883D1A),
                             width1: 32,
-                            height1: 32
-                        ),
-                        Text('Wonder\n Safari',
+                            height1: 32),
+                        Text(
+                          'Wonder\n Safari',
                           style: textS907,
                         )
                       ],
                     ),
                   ),
                 ),
-                SizedBox(
-                  height: 34,
-                  width: 246,
+                Expanded(
+                  // height: 34,
+                  // width: 110,
                   child: Text(
-                    'Set \$350 for all buddies to make deposit\n payment towards flight',
+                    'Set \$350 for all buddies to make deposit payment towards flight',
                     style: textS1,
+                    textAlign: TextAlign.center,
                   ),
                 )
               ],
@@ -91,10 +92,10 @@ class _TripCommitmentState extends State<TripCommitment> {
           SizedBox(
             height: 10,
           ),
-          const Row(
+          Row(
             children: [
               Padding(
-                padding: EdgeInsets.only(left: 16),
+                padding: const EdgeInsets.only(left: 16.0),
                 child: Text(
                   'Your automated trip funding plan of \$1,265',
                   style: textS612,
@@ -103,7 +104,7 @@ class _TripCommitmentState extends State<TripCommitment> {
             ],
           ),
           SizedBox(
-            width: 312,
+            width: screenWidth - 72,
             height: 47,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -120,16 +121,15 @@ class _TripCommitmentState extends State<TripCommitment> {
                     ),
                   ],
                 ),
-                const SizedBox(
-                  height: 34,
-                  width: 242,
+                Expanded(
                   child: Text(
-                    'Split in 11 top-up cycles on the last Friday\n of every month.',
+                    'Split in 11 top-up cycles on the last Friday of every month.',
                     style: textS1,
+                    textAlign: TextAlign.center,
                   ),
                 ),
                 GestureDetector(
-                    onTap: (){
+                    onTap: () {
                       showModalBottomSheet(
                           backgroundColor: Colors.transparent,
                           isScrollControlled: true,
@@ -142,13 +142,12 @@ class _TripCommitmentState extends State<TripCommitment> {
                                 decoration: BoxDecoration(
                                     borderRadius: BorderRadius.only(
                                       topRight: Radius.circular(20.0),
-                                      topLeft: Radius.circular(20.0),// Set the top-right radius
+                                      topLeft: Radius.circular(
+                                          20.0), // Set the top-right radius
                                     ),
-                                    color: Colors.white
-                                ),
+                                    color: Colors.white),
                                 child: AutomatedPopup());
-                          }
-                      );
+                          });
                     },
                     child: const Padding(
                       padding: EdgeInsets.only(top: 12),
@@ -156,8 +155,7 @@ class _TripCommitmentState extends State<TripCommitment> {
                         'Change',
                         style: textS2,
                       ),
-                    )
-                ),
+                    )),
               ],
             ),
           ),

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-// const String jiniLoaderImg = 'assets/jinni-loader.gif';
-const String jiniLoaderImg = 'assets/Jin.jpg';
+const String jiniLoaderImg = 'assets/jinni-loader.gif';
+// const String jiniLoaderImg = 'assets/Jin.jpg';
 const String parisImg = 'assets/johans.png';
 const textS904 = TextStyle(
     fontWeight: FontWeight.w400,
@@ -110,7 +110,6 @@ const textS612HBlack = TextStyle(
     fontSize: 12,
     fontFamily: 'Inter',
     color: Color(0xff565560));
-
 
 const textS612 = TextStyle(
     fontWeight: FontWeight.w600,
