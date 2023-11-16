@@ -15,7 +15,6 @@ import '../atoms/budget_selector.dart';
 import '../atoms/buttons/button_multi_color.dart';
 import '../atoms/calculating_funds.dart';
 
-
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
@@ -79,146 +78,161 @@ class _HomeScreenState extends State<HomeScreen> {
           backgroundColor: Colors.white,
           body: Column(
             children: [
-
-              Expanded(
-                flex: 9,
-                child: Column(
-                  children: [
-                    const MenuBack(
-                      isHomeScreen: true,
-                    ),
-                    SizedBox(
-                      height: 24
-                    ),
-                    Column(
-                      children: [
-                        calculatingFunds
-                            ? CalculatingFunds()
-                            : !calculatedFunds
-                            ? Column(
+              Column(
+                children: [
+                  const MenuBack(
+                    isHomeScreen: true,
+                  ),
+                  SizedBox(height: 24),
+                  Column(
+                    children: [
+                      calculatingFunds
+                          ? CalculatingFunds()
+                          : !calculatedFunds
+                              ? Column(
+                                  children: [
+                                    Text('Setup Successful! ',
+                                        style: textS617B),
+                                    SizedBox(
+                                      height: 10,
+                                    ),
+                                    Text(
+                                      'Your share of funding plan has been created. ',
+                                      style: textS416B,
+                                      textAlign: TextAlign.center,
+                                    ),
+                                    SizedBox(
+                                      height: 30,
+                                    ),
+                                    Text('Your Share ', style: textS1),
+                                    SizedBox(
+                                      height: 10,
+                                    ),
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        Text('£', style: textS632B),
+                                        Countup(
+                                            begin: 0,
+                                            end: 1262,
+                                            duration: Duration(seconds: 1),
+                                            separator: ',',
+                                            style: textS632B),
+                                      ],
+                                    ),
+                                  ],
+                                )
+                              : BudgetSelector(),
+                      SizedBox(
+                        height: 15,
+                      ),
+                      SizedBox(
+                        height: 27,
+                        width: 239,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text('Setup Successful! ', style: textS617B),
-                            SizedBox(
-                              height: 10,
+                            const Text(
+                              'Set funds aside for the entire trip',
+                              style: textS12,
                             ),
-                            Text('Your share of funding plan has been created. ',
-                                style: textS416B),
-                            SizedBox(
-                              height: 30,
-                            ),
-                            Text('Your Share ', style: textS1),
-                            SizedBox(
-                              height: 10,
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Text('£',
-                                    style: textS632B
-                                ),
-                                Countup(
-                                  begin: 0,
-                                  end: 1262,
-                                  duration: Duration(seconds: 1),
-                                  separator: ',',
-                                    style: textS632B
-                                ),
-                              ],
-                            ),
-                          ],
-                        )
-                            : BudgetSelector(),
-                        SizedBox(
-                          height: 15,
-                        ),
-                        SizedBox(
-                          height: 27,
-                          width: 239,
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              const Text(
-                                'Set funds aside for the entire trip',
-                                style: textS12,
-                              ),
-                              FlutterSwitch(
-                                value: toggleValue,
-                                height: 26,
-                                width: 43,
-                                borderRadius: 25,
-                                toggleSize: 20,
-                                toggleColor: Colors.white,
-                                activeColor:
-                                toggleValue == true ? Colors.lightGreen : Colors.grey,
-                                onToggle: ((val) {
+                            FlutterSwitch(
+                              value: toggleValue,
+                              height: 26,
+                              width: 43,
+                              borderRadius: 25,
+                              toggleSize: 20,
+                              toggleColor: Colors.white,
+                              activeColor: toggleValue == true
+                                  ? Colors.lightGreen
+                                  : Colors.grey,
+                              onToggle: ((val) {
+                                setState(() {
+                                  toggleValue = val;
+                                });
+
+                                if (toggleValue) {
                                   setState(() {
-                                    toggleValue = val;
+                                    calculatingFunds = true;
                                   });
 
-                                  if (toggleValue) {
-                                    setState(() {
-                                      calculatingFunds = true;
-                                    });
-
-                                    Timer(Duration(seconds: 5), () {
-                                      setState(() =>
-                                      {calculatedFunds = true, calculatingFunds = false});
-                                      // dynamic state = _menuKey.currentState;
-                                      // state.showButtonMenu();
-                                      showModalBottomSheet(
-                                          backgroundColor: Colors.transparent,
-                                          isScrollControlled: true,
-                                          context: context,
-                                          builder: (context) {
-                                            return HomeScreenPopup();
-                                          });
-                                    });
-                                  } else {
-                                    setState(() {
-                                      calculatedFunds = false;
-                                      calculatingFunds = false;
-                                    });
-                                  }
-                                }),
-                              )
-                            ],
-                          ),
+                                  Timer(Duration(seconds: 5), () {
+                                    setState(() => {
+                                          calculatedFunds = true,
+                                          calculatingFunds = false
+                                        });
+                                    // dynamic state = _menuKey.currentState;
+                                    // state.showButtonMenu();
+                                    showModalBottomSheet(
+                                        backgroundColor: Colors.transparent,
+                                        isScrollControlled: true,
+                                        context: context,
+                                        builder: (context) {
+                                          return HomeScreenPopup();
+                                        });
+                                  });
+                                } else {
+                                  setState(() {
+                                    calculatedFunds = false;
+                                    calculatingFunds = false;
+                                  });
+                                }
+                              }),
+                            )
+                          ],
+                        ),
+                      ),
+                    ],
+                  )
+                ],
+              ),
+              Expanded(
+                child: ListView(
+                  scrollDirection: Axis.vertical,
+                  children: [
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Center(child: TripCommitment()),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Text(
+                          'Funds will not be taken from your account if the minimum number of 8 travellers is not reached! ',
+                          style: textS1,
+                          textAlign: TextAlign.center,
+                        ),
+                        Text(
+                          '',
+                          style: textS1,
                         ),
                       ],
                     )
                   ],
                 ),
               ),
-              Expanded(
-                flex: toggleValue == false ? 5 : 2,
-                child: SingleChildScrollView(
-                  child: TripCommitment(),
-                ),
-              ),
-              Expanded(
-                flex: 3,
-                child: Column(
-                  children: [
-                    SizedBox(height: toggleValue == false ? 25 : 40,),
-                    Text(
-                      'Funds will not be taken from your account if the minimum ',
-                      style: textS1,
-                    ),
-                    Text(
-                      'number of 8 travellers is not reached! ',
-                      style: textS1,
-                    ),
-                    SizedBox(height: toggleValue == false ? 20 : 25,),
-                    GestureDetector(
-                        onTap: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => const FundingPlan()));
-                        },
-                        child: ButtonMulti(title: 'Save wish & view funding plan')),
-                  ],
-                ),
+              Column(
+                children: [
+                  SizedBox(
+                    height: toggleValue == false ? 20 : 25,
+                  ),
+                  GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const FundingPlan()));
+                      },
+                      child:
+                          ButtonMulti(title: 'Save wish & view funding plan')),
+                  SizedBox(
+                    height: 20,
+                  ),
+                ],
               )
               // const BottomLine(),
             ],

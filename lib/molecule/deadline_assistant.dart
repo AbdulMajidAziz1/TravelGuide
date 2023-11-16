@@ -10,7 +10,22 @@ class DeadLineAssistant extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final fullWidth = MediaQuery.of(context).size.width;
-    final index = 0;
+
+    final allMonths = [
+      'January',
+      'February',
+      'March',
+      'April',
+      'May',
+      'June',
+      'July',
+      'August',
+      'September',
+      'October',
+      'November',
+      'December'
+    ];
+
     return SizedBox(
       width: fullWidth,
       height: 540,
@@ -125,7 +140,9 @@ class DeadLineAssistant extends StatelessWidget {
                                                 duration: Duration(seconds: 2),
                                                 separator: ',',
                                                 style: TextStyle(
-                                                  color: index == 0 ? const Color(0xFF32CB5E) : Colors.black,
+                                                  color: index == 0
+                                                      ? const Color(0xFF32CB5E)
+                                                      : Colors.black,
                                                   fontSize: 10,
                                                   fontFamily: 'Inter',
                                                   fontWeight: FontWeight.w600,
@@ -148,29 +165,24 @@ class DeadLineAssistant extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              AnimatedTextKit(animatedTexts: [
-                                TyperAnimatedText(
-                                  "January, 23",
-                                  textStyle: TextStyle(
-                                    color: Color(0xFF757575),
-                                    fontSize: 10,
-                                    fontFamily: 'Inter',
-                                    fontWeight: FontWeight.w600,
-                                  ),
-                                )
-                              ]),
+                              Text(
+                                "${allMonths[index]}, 23",
+                                style: TextStyle(
+                                  color: Color(0xFF757575),
+                                  fontSize: 10,
+                                  fontFamily: 'Inter',
+                                  fontWeight: FontWeight.w600,
+                                ),
+                              ),
                               Row(
                                 children: [
-                                  Text('£',
-                                      style: textS614
-                                  ),
+                                  Text('£', style: textS614),
                                   Countup(
                                       begin: 0,
                                       end: index == 0 ? 350 : 403,
                                       duration: Duration(seconds: 2),
                                       separator: ',',
-                                      style: textS614
-                                  ),
+                                      style: textS614),
                                 ],
                               )
                             ],
@@ -190,7 +202,9 @@ class DeadLineAssistant extends StatelessWidget {
                                     Text(
                                       index == 0 ? "£0" : "£169",
                                       style: TextStyle(
-                                        color: index == 0 ? Color(0xFFD0D0D5) : Color(0xFF757575),
+                                        color: index == 0
+                                            ? Color(0xFFD0D0D5)
+                                            : Color(0xFF757575),
                                         fontSize: 14,
                                         fontFamily: 'Inter',
                                         fontWeight: FontWeight.w400,
@@ -204,7 +218,9 @@ class DeadLineAssistant extends StatelessWidget {
                                     Text(
                                       index == 0 ? "£0" : "£89",
                                       style: TextStyle(
-                                        color: index == 0 ? Color(0xFFD0D0D5) : Color(0xFF757575),
+                                        color: index == 0
+                                            ? Color(0xFFD0D0D5)
+                                            : Color(0xFF757575),
                                         fontSize: 14,
                                         fontFamily: 'Inter',
                                         fontWeight: FontWeight.w400,
@@ -232,7 +248,9 @@ class DeadLineAssistant extends StatelessWidget {
                                     Text(
                                       index == 0 ? "£0" : "£44",
                                       style: TextStyle(
-                                        color: index == 0 ? Color(0xFFD0D0D5) : Color(0xFF757575),
+                                        color: index == 0
+                                            ? Color(0xFFD0D0D5)
+                                            : Color(0xFF757575),
                                         fontSize: 14,
                                         fontFamily: 'Inter',
                                         fontWeight: FontWeight.w400,

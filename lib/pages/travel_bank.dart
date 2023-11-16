@@ -49,7 +49,9 @@ class _TravelBankScreenState extends State<TravelBankScreen> {
         backgroundColor: const Color(0xffF3F3F4),
         body: Column(
           children: [
-            SizedBox(height: 10,),
+            SizedBox(
+              height: 10,
+            ),
             const MenuBack(
               isHomeScreen: true,
               showJinni: false,
@@ -192,43 +194,57 @@ class _TravelBankScreenState extends State<TravelBankScreen> {
                                           return Column(
                                             children: [
                                               GestureDetector(
-                                                  onTap: (){
+                                                  onTap: () {
                                                     showModalBottomSheet(
-                                                        backgroundColor: Colors.transparent,
-                                                        isScrollControlled: true,
+                                                        backgroundColor:
+                                                            Colors.transparent,
+                                                        isScrollControlled:
+                                                            true,
                                                         context: context,
                                                         builder: (context) {
                                                           return TravelBankPopup();
-                                                        }
-                                                    );
+                                                        });
                                                   },
                                                   child: SizedBox(
                                                     width: 52.25,
                                                     height: 52.25,
                                                     child: Container(
-                                                      decoration: ShapeDecoration(
-                                                        color: const Color(0xFFF3F3F4),
-                                                        shape: RoundedRectangleBorder(
-                                                          borderRadius: BorderRadius.circular(479.36),
+                                                      decoration:
+                                                          ShapeDecoration(
+                                                        color: const Color(
+                                                            0xFFF3F3F4),
+                                                        shape:
+                                                            RoundedRectangleBorder(
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(
+                                                                      479.36),
                                                         ),
                                                       ),
                                                       child: Center(
                                                         child: Container(
                                                           height: 25,
                                                           width: 25,
-                                                          decoration: ShapeDecoration(
-                                                            color: Color.fromARGB(
-                                                                255,
-                                                                255,
-                                                                255,
-                                                                255),
-                                                            shape: RoundedRectangleBorder(
-                                                              borderRadius: BorderRadius.circular(479.36),
+                                                          decoration:
+                                                              ShapeDecoration(
+                                                            color:
+                                                                Color.fromARGB(
+                                                                    255,
+                                                                    255,
+                                                                    255,
+                                                                    255),
+                                                            shape:
+                                                                RoundedRectangleBorder(
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                          479.36),
                                                             ),
                                                           ),
                                                           child: Center(
                                                             child: Image(
-                                                              image: AssetImage('assets/open_details.png'),
+                                                              image: AssetImage(
+                                                                  'assets/open_details.png'),
                                                               height: 16,
                                                               width: 16,
                                                             ),
@@ -236,8 +252,7 @@ class _TravelBankScreenState extends State<TravelBankScreen> {
                                                         ),
                                                       ),
                                                     ),
-                                                  )
-                                              ),
+                                                  )),
                                             ],
                                           );
                                         }
@@ -249,8 +264,10 @@ class _TravelBankScreenState extends State<TravelBankScreen> {
                                               height: 103.25,
                                               child: Column(
                                                 mainAxisSize: MainAxisSize.min,
-                                                mainAxisAlignment: MainAxisAlignment.start,
-                                                crossAxisAlignment: CrossAxisAlignment.center,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.start,
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.center,
                                                 children: [
                                                   Container(
                                                     width: 52.25,
@@ -262,17 +279,28 @@ class _TravelBankScreenState extends State<TravelBankScreen> {
                                                       right: 5.22,
                                                       bottom: 5.22,
                                                     ),
-                                                    clipBehavior: Clip.antiAlias,
+                                                    clipBehavior:
+                                                        Clip.antiAlias,
                                                     decoration: ShapeDecoration(
-                                                      color: const Color(0xFFE6F3E8),
-                                                      shape: RoundedRectangleBorder(
-                                                        borderRadius: BorderRadius.circular(479.36),
+                                                      color: const Color(
+                                                          0xFFE6F3E8),
+                                                      shape:
+                                                          RoundedRectangleBorder(
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(
+                                                                    479.36),
                                                       ),
                                                     ),
                                                     child: Row(
-                                                      mainAxisSize: MainAxisSize.min,
-                                                      mainAxisAlignment: MainAxisAlignment.center,
-                                                      crossAxisAlignment: CrossAxisAlignment.center,
+                                                      mainAxisSize:
+                                                          MainAxisSize.min,
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .center,
+                                                      crossAxisAlignment:
+                                                          CrossAxisAlignment
+                                                              .center,
                                                       children: [
                                                         SizedBox(
                                                           width: 41.80,
@@ -292,7 +320,8 @@ class _TravelBankScreenState extends State<TravelBankScreen> {
                                                                               double>(
                                                                           begin:
                                                                               0.0,
-                                                                          end: progressValue),
+                                                                          end:
+                                                                              progressValue),
                                                                       duration: const Duration(
                                                                           milliseconds:
                                                                               1000),
@@ -317,7 +346,7 @@ class _TravelBankScreenState extends State<TravelBankScreen> {
                                                                   width: 26.12,
                                                                   height: 26.12,
                                                                   padding: const EdgeInsets
-                                                                          .only(
+                                                                      .only(
                                                                       top: 5.22,
                                                                       bottom:
                                                                           4.90),
@@ -346,15 +375,25 @@ class _TravelBankScreenState extends State<TravelBankScreen> {
                                                                             .center,
                                                                     children: [
                                                                       Countup(
-                                                                        begin: 0,
-                                                                        end: index.toDouble() + 1,
-                                                                        duration: Duration(seconds: 2),
-                                                                        separator: ',',
-                                                                        style: TextStyle(
-                                                                          color: index == 0 ? const Color(0xFF32CB5E) : Colors.black,
-                                                                          fontSize: 10,
-                                                                          fontFamily: 'Inter',
-                                                                          fontWeight: FontWeight.w600,
+                                                                        begin:
+                                                                            0,
+                                                                        end: index.toDouble() +
+                                                                            1,
+                                                                        duration:
+                                                                            Duration(seconds: 2),
+                                                                        separator:
+                                                                            ',',
+                                                                        style:
+                                                                            TextStyle(
+                                                                          color: index == 0
+                                                                              ? const Color(0xFF32CB5E)
+                                                                              : Colors.black,
+                                                                          fontSize:
+                                                                              10,
+                                                                          fontFamily:
+                                                                              'Inter',
+                                                                          fontWeight:
+                                                                              FontWeight.w600,
                                                                         ),
                                                                       ),
                                                                     ],
@@ -381,13 +420,21 @@ class _TravelBankScreenState extends State<TravelBankScreen> {
                                                       children: [
                                                         SizedBox(
                                                           child: Row(
-                                                            mainAxisSize: MainAxisSize.min,
-                                                            mainAxisAlignment: MainAxisAlignment.center,
-                                                            crossAxisAlignment: CrossAxisAlignment.center,
+                                                            mainAxisSize:
+                                                                MainAxisSize
+                                                                    .min,
+                                                            mainAxisAlignment:
+                                                                MainAxisAlignment
+                                                                    .center,
+                                                            crossAxisAlignment:
+                                                                CrossAxisAlignment
+                                                                    .center,
                                                             children: [
                                                               Text(
                                                                 '${allMonths[index]}, 23',
-                                                                textAlign: TextAlign.center,
+                                                                textAlign:
+                                                                    TextAlign
+                                                                        .center,
                                                                 style:
                                                                     TextStyle(
                                                                   color: Color(
@@ -407,21 +454,40 @@ class _TravelBankScreenState extends State<TravelBankScreen> {
                                                             height: 4),
                                                         SizedBox(
                                                           child: Row(
-                                                            mainAxisSize: MainAxisSize.min,
-                                                            mainAxisAlignment: MainAxisAlignment.center,
-                                                            crossAxisAlignment: CrossAxisAlignment.center,
+                                                            mainAxisSize:
+                                                                MainAxisSize
+                                                                    .min,
+                                                            mainAxisAlignment:
+                                                                MainAxisAlignment
+                                                                    .center,
+                                                            crossAxisAlignment:
+                                                                CrossAxisAlignment
+                                                                    .center,
                                                             children: [
                                                               Text('£',
-                                                                  style: index == 0 ? textS614 : textS14
-                                                              ),
+                                                                  style: index ==
+                                                                          0
+                                                                      ? textS614
+                                                                      : textS14),
                                                               Countup(
                                                                   begin: 0,
-                                                                  end: index == 0 ? 350 : 114,
-                                                                  duration: Duration(seconds: 2),
-                                                                  separator: ',',
-                                                                  textAlign: TextAlign.center,
-                                                                  style: index == 0 ? textS614 : textS14
-                                                              ),
+                                                                  end:
+                                                                      index == 0
+                                                                          ? 350
+                                                                          : 114,
+                                                                  duration:
+                                                                      Duration(
+                                                                          seconds:
+                                                                              2),
+                                                                  separator:
+                                                                      ',',
+                                                                  textAlign:
+                                                                      TextAlign
+                                                                          .center,
+                                                                  style: index ==
+                                                                          0
+                                                                      ? textS614
+                                                                      : textS14),
                                                               const SizedBox(
                                                                   width: 4),
                                                               Transform(

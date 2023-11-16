@@ -36,9 +36,7 @@ class _FundingPlanState extends State<FundingPlan> {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => const TravelBankScreen()
-                      )
-                  ),
+                          builder: (context) => const TravelBankScreen())),
                 }
             });
     super.initState();
@@ -159,30 +157,30 @@ class _FundingPlanState extends State<FundingPlan> {
                           height1: 40),
                       buddiesJoined >= 2
                           ? Positioned(
-                          left: 27,
-                          child: CircularImg(
-                              pathP: 'assets/image 7.png',
-                              color1: Color(0xffC4C4C4),
-                              width1: 40,
-                              height1: 40))
+                              left: 27,
+                              child: CircularImg(
+                                  pathP: 'assets/image 7.png',
+                                  color1: Color(0xffC4C4C4),
+                                  width1: 40,
+                                  height1: 40))
                           : Container(),
                       buddiesJoined >= 3
                           ? Positioned(
-                          left: 55,
-                          child: CircularImg(
-                              pathP: 'assets/image 8.png',
-                              color1: Color(0xffDDDDDD),
-                              width1: 40,
-                              height1: 40))
+                              left: 55,
+                              child: CircularImg(
+                                  pathP: 'assets/image 8.png',
+                                  color1: Color(0xffDDDDDD),
+                                  width1: 40,
+                                  height1: 40))
                           : Container(),
                       buddiesJoined >= 4
                           ? Positioned(
-                          left: 85,
-                          child: CircularImg(
-                              pathP: 'assets/image 9.png',
-                              color1: Color(0xffC4C4C4),
-                              width1: 40,
-                              height1: 40))
+                              left: 85,
+                              child: CircularImg(
+                                  pathP: 'assets/image 9.png',
+                                  color1: Color(0xffC4C4C4),
+                                  width1: 40,
+                                  height1: 40))
                           : Container(),
                     ],
                   ),
@@ -193,7 +191,7 @@ class _FundingPlanState extends State<FundingPlan> {
           Container(
               height: 40,
               width: 300,
-              child: const Row(
+              child: Row(
                 children: [
                   Padding(
                     padding: EdgeInsets.only(left: 18, top: 0),
@@ -205,7 +203,7 @@ class _FundingPlanState extends State<FundingPlan> {
                   Padding(
                     padding: EdgeInsets.only(left: 70, top: 0),
                     child: Text(
-                      '4 buddies unavailable ',
+                      '${buddiesJoined <= 4 ? buddiesJoined < 1 ? 1 : buddiesJoined : "4"} buddies unavailable ',
                       style: textS410B,
                     ),
                   )
@@ -248,9 +246,21 @@ class _FundingPlanState extends State<FundingPlan> {
               children: [
                 const SingleLine(),
                 buddiesJoined >= 2 ? SingleLine() : EmptyLine(),
-                buddiesJoined == 2 ? EmptyLine() : buddiesJoined < 2 ? WhiteLine(): SingleLine(),
-                buddiesJoined == 3 ? EmptyLine() : buddiesJoined < 3 ? WhiteLine(): SingleLine(),
-                buddiesJoined == 4 ? EmptyLine() : buddiesJoined < 4 ? WhiteLine(): SingleLine(),
+                buddiesJoined == 2
+                    ? EmptyLine()
+                    : buddiesJoined < 2
+                        ? WhiteLine()
+                        : SingleLine(),
+                buddiesJoined == 3
+                    ? EmptyLine()
+                    : buddiesJoined < 3
+                        ? WhiteLine()
+                        : SingleLine(),
+                buddiesJoined == 4
+                    ? EmptyLine()
+                    : buddiesJoined < 4
+                        ? WhiteLine()
+                        : SingleLine(),
               ],
             ),
           ),
