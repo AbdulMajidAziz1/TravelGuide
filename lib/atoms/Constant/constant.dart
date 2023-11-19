@@ -3,14 +3,45 @@ import 'package:flutter/material.dart';
 const String jiniLoaderImg = 'assets/jinni-loader.gif';
 // const String jiniLoaderImg = 'assets/Jin.jpg';
 const String parisImg = 'assets/johans.png';
+const textS804G = TextStyle(
+    fontWeight: FontWeight.w400,
+    fontSize: 8,
+    fontFamily: 'Inter',
+    color: Color(0xff757575));
+
+const textS806G = TextStyle(
+    fontWeight: FontWeight.w600,
+    fontSize: 8,
+    fontFamily: 'Inter',
+    color: Color(0xff292929));
+
 const textS904 = TextStyle(
     fontWeight: FontWeight.w400,
     fontSize: 9,
     fontFamily: 'Inter',
     color: Color(0xff565560));
 
+const textS409G = TextStyle(
+    fontWeight: FontWeight.w400,
+    fontSize: 9,
+    fontFamily: 'Inter',
+    color: Color(0xff757575));
+
+const textS904G = TextStyle(
+    fontWeight: FontWeight.w400,
+    fontSize: 9,
+    fontFamily: 'Inter',
+    color: Color(0xff565560));
+
+
 const textS907 = TextStyle(
     fontWeight: FontWeight.w700,
+    fontSize: 9,
+    fontFamily: 'Inter',
+    color: Color(0xff292929));
+
+const textS906 = TextStyle(
+    fontWeight: FontWeight.w600,
     fontSize: 9,
     fontFamily: 'Inter',
     color: Color(0xff292929));
@@ -74,6 +105,12 @@ const textS411B = TextStyle(
     fontWeight: FontWeight.w400,
     fontFamily: 'Inter',
     color: Color(0xff2B2A30));
+
+const textS11Bold = TextStyle(
+    fontWeight: FontWeight.w600,
+    fontSize: 11,
+    fontFamily: 'Inter',
+    color: Color(0xff292929));
 
 const textS1 = TextStyle(
     fontWeight: FontWeight.w400,
@@ -146,6 +183,7 @@ const textS614 = TextStyle(
     fontSize: 14,
     fontFamily: 'Inter',
     color: Color(0xff292929));
+
 
 const textS614B = TextStyle(
     fontWeight: FontWeight.w600,

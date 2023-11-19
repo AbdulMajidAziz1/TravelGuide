@@ -44,49 +44,42 @@ class _TransactionItemState extends State<TransactionItem> {
                 width: 32,
               ),
               SizedBox(
-                width: 10,
+                width: 4,
               ),
-              Expanded(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          widget.title,
-                          style: textS14,
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    widget.title,
+                    style: screenWidth > 362 ?  textS14 : textS1,
+                  ),
+                  Text(
+                    widget.subTitle,
+                    style: screenWidth > 362 ? textS1 : textS409G,
+                  ),
+                ],
+              ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  widget.positive
+                      ? Text(
+                          widget.amount,
+                          style: TextStyle(
+                              fontWeight: FontWeight.w400,
+                              fontSize: screenWidth > 362 ? 14 : 12,
+                              fontFamily: 'Inter',
+                              color: Color(0xff2EAE4E)),
+                        )
+                      : Text(
+                          widget.amount,
+                          style: screenWidth > 362 ?  textS14 : textS1,
                         ),
-                        Text(
-                          widget.subTitle,
-                          style: textS1,
-                        ),
-                      ],
-                    ),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.end,
-                      children: [
-                        widget.positive
-                            ? Text(
-                                widget.amount,
-                                style: TextStyle(
-                                    fontWeight: FontWeight.w400,
-                                    fontSize: 14,
-                                    fontFamily: 'Inter',
-                                    color: Color(0xff2EAE4E)),
-                              )
-                            : Text(
-                                widget.amount,
-                                style: textS14,
-                              ),
-                        Text(
-                          widget.date,
-                          style: textS1,
-                        ),
-                      ],
-                    )
-                  ],
-                ),
+                  Text(
+                    widget.date,
+                    style: screenWidth > 362 ? textS1 : textS409G,
+                  ),
+                ],
               ),
             ],
           ),

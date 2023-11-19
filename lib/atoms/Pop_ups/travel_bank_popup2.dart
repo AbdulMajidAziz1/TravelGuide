@@ -1,30 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../molecule/deadline_assistant.dart';
 import '../Lines/popup_line.dart';
 
-class TravelBankPopup extends StatefulWidget {
-  const TravelBankPopup({super.key});
+class TravelBankPopup2 extends StatefulWidget {
+  const TravelBankPopup2({super.key});
 
   @override
-  State<TravelBankPopup> createState() => TravelBankPopupState();
+  State<TravelBankPopup2> createState() => _TravelBankPopup2State();
 }
 
-class TravelBankPopupState extends State<TravelBankPopup> {
-  static const String KEYLOGIN = "login";
-  var istrue;
-
-  @override
-  void initState(){
-    whereTo();
-  }
-
-  void whereTo() async{
-    var share = await SharedPreferences.getInstance();
-    istrue = share.getBool(KEYLOGIN);
-    print(share.getBool(KEYLOGIN));
-  }
+class _TravelBankPopup2State extends State<TravelBankPopup2> {
   @override
   Widget build(BuildContext context) {
     final allMonths = [
@@ -42,8 +28,6 @@ class TravelBankPopupState extends State<TravelBankPopup> {
       'December'
     ];
 
-
-
     final widgetsWidth = MediaQuery.of(context).size.width - 16;
     final screenWidth = MediaQuery.of(context).size.width;
     final widgetsHeight = MediaQuery.of(context).size.height;
@@ -53,7 +37,7 @@ class TravelBankPopupState extends State<TravelBankPopup> {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Container(
-          height: 710,
+          height: widgetsHeight * 0.9,
           width: screenWidth,
           decoration: BoxDecoration(
             color: Colors.white,
@@ -98,17 +82,17 @@ class TravelBankPopupState extends State<TravelBankPopup> {
                           children: [
                             Expanded(
                                 child: Padding(
-                              padding: const EdgeInsets.all(10),
-                              child: Text(
-                                "11 top-up cycles",
-                                style: TextStyle(
-                                  color: Color(0xFF757575),
-                                  fontSize: 12,
-                                  fontFamily: 'Inter',
-                                  fontWeight: FontWeight.w600,
-                                ),
-                              ),
-                            )),
+                                  padding: const EdgeInsets.all(10),
+                                  child: Text(
+                                    "11 top-up cycles",
+                                    style: TextStyle(
+                                      color: Color(0xFF757575),
+                                      fontSize: 12,
+                                      fontFamily: 'Inter',
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                                  ),
+                                )),
                             Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
@@ -118,7 +102,7 @@ class TravelBankPopupState extends State<TravelBankPopup> {
                                   width: 20,
                                 ),
                                 Text(
-                                  "Flight",
+                                  "Majid",
                                   style: TextStyle(
                                     color: Color(0xFF757575),
                                     fontSize: 12,
@@ -240,19 +224,19 @@ class TravelBankPopupState extends State<TravelBankPopup> {
                                 Padding(
                                   padding: const EdgeInsets.only(right: 10),
                                   child: SizedBox(
-                                    width: 175,
+                                    width: 185,
                                     child: Row(
                                         mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
+                                        MainAxisAlignment.spaceBetween,
                                         children: [
                                           Column(
                                             mainAxisAlignment:
-                                                MainAxisAlignment.end,
+                                            MainAxisAlignment.end,
                                             children: [
                                               Text(
-                                                istrue == false ? "£0": "\$1520",
+                                                "\$1520",
                                                 style: TextStyle(
-                                                  color: istrue == false ? Color(0xFFD0D0D5) : Color(0xFF007AFF),
+                                                  color: Color(0xFF007AFF),
                                                   fontSize: 14,
                                                   fontFamily: 'Inter',
                                                   fontWeight: FontWeight.w400,
@@ -262,12 +246,12 @@ class TravelBankPopupState extends State<TravelBankPopup> {
                                           ),
                                           Column(
                                             mainAxisAlignment:
-                                                MainAxisAlignment.end,
+                                            MainAxisAlignment.end,
                                             children: [
                                               Text(
-                                                istrue == false ? "£0": "\$800",
+                                                "\$800",
                                                 style: TextStyle(
-                                                  color: istrue == false ? Color(0xFFD0D0D5) : Color(0xFF007AFF),
+                                                  color: Color(0xFF007AFF),
                                                   fontSize: 14,
                                                   fontFamily: 'Inter',
                                                   fontWeight: FontWeight.w400,
@@ -277,7 +261,7 @@ class TravelBankPopupState extends State<TravelBankPopup> {
                                           ),
                                           Column(
                                             mainAxisAlignment:
-                                                MainAxisAlignment.end,
+                                            MainAxisAlignment.end,
                                             children: [
                                               Text(
                                                 "\$1262",
@@ -292,12 +276,12 @@ class TravelBankPopupState extends State<TravelBankPopup> {
                                           ),
                                           Column(
                                             mainAxisAlignment:
-                                                MainAxisAlignment.end,
+                                            MainAxisAlignment.end,
                                             children: [
                                               Text(
-                                                istrue == false ? "£0": "\$400",
+                                                "\$400",
                                                 style: TextStyle(
-                                                  color: istrue == false ? Color(0xFFD0D0D5) : Color(0xFF007AFF),
+                                                  color: Color(0xFF007AFF),
                                                   fontSize: 14,
                                                   fontFamily: 'Inter',
                                                   fontWeight: FontWeight.w400,
@@ -348,47 +332,17 @@ class TravelBankPopupState extends State<TravelBankPopup> {
                                 Padding(
                                   padding: const EdgeInsets.only(right: 10),
                                   child: SizedBox(
-                                    width: 175,
+                                    width: 185,
                                     child: Row(
                                         mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
+                                        MainAxisAlignment.spaceBetween,
                                         children: [
                                           Column(
                                             mainAxisAlignment:
-                                                MainAxisAlignment.end,
+                                            MainAxisAlignment.end,
                                             children: [
                                               Text(
-                                                istrue == false ? "0%" : "38%",
-                                                style: TextStyle(
-                                                  color: istrue == false ? Color(0xFFD0D0D5) : Color(0xFF007AFF),
-                                                  fontSize: 14,
-                                                  fontFamily: 'Inter',
-                                                  fontWeight: FontWeight.w400,
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                          Column(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.end,
-                                            children: [
-                                              Text(
-                                                istrue == false ? "0%" : "20%",
-                                                style: TextStyle(
-                                                  color: istrue == false ? Color(0xFFD0D0D5) : Color(0xFF007AFF),
-                                                  fontSize: 14,
-                                                  fontFamily: 'Inter',
-                                                  fontWeight: FontWeight.w400,
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                          Column(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.end,
-                                            children: [
-                                              Text(
-                                                istrue == false ? "100%" :"32%",
+                                                "38%",
                                                 style: TextStyle(
                                                   color: Color(0xFF007AFF),
                                                   fontSize: 14,
@@ -400,12 +354,42 @@ class TravelBankPopupState extends State<TravelBankPopup> {
                                           ),
                                           Column(
                                             mainAxisAlignment:
-                                                MainAxisAlignment.end,
+                                            MainAxisAlignment.end,
                                             children: [
                                               Text(
-                                                istrue == false ? "0%" :"10%",
+                                                "20%",
                                                 style: TextStyle(
-                                                  color: istrue == false ? Color(0xFFD0D0D5) : Color(0xFF007AFF),
+                                                  color: Color(0xFF007AFF),
+                                                  fontSize: 14,
+                                                  fontFamily: 'Inter',
+                                                  fontWeight: FontWeight.w400,
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                          Column(
+                                            mainAxisAlignment:
+                                            MainAxisAlignment.end,
+                                            children: [
+                                              Text(
+                                                "32%",
+                                                style: TextStyle(
+                                                  color: Color(0xFF007AFF),
+                                                  fontSize: 14,
+                                                  fontFamily: 'Inter',
+                                                  fontWeight: FontWeight.w400,
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                          Column(
+                                            mainAxisAlignment:
+                                            MainAxisAlignment.end,
+                                            children: [
+                                              Text(
+                                                "10%",
+                                                style: TextStyle(
+                                                  color: Color(0xFF007AFF),
                                                   fontSize: 14,
                                                   fontFamily: 'Inter',
                                                   fontWeight: FontWeight.w400,

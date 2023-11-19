@@ -1,19 +1,20 @@
 import 'dart:async';
-
 import 'package:countup/countup.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_switch/flutter_switch.dart';
 import 'package:login/atoms/Constant/constant.dart';
-import 'package:login/atoms/Lines/bottom_line.dart';
 import 'package:login/molecule/pg1_molecule/menu_bar.dart';
-import 'package:login/molecule/pg1_molecule/moL2_texts.dart';
-import 'package:login/molecule/pg1_molecule/moL4_travel_fund.dart';
-import 'package:login/molecule/pg1_molecule/trip_commitment.dart';
 import 'package:login/pages/funding_plan.dart';
+import 'package:login/pages/travel_bank.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import '../atoms/Pop_ups/automated_popup.dart';
 import '../atoms/Pop_ups/home_screen_popup.dart';
+import '../atoms/Pop_ups/travel_bank_popup.dart';
 import '../atoms/budget_selector.dart';
 import '../atoms/buttons/button_multi_color.dart';
 import '../atoms/calculating_funds.dart';
+import '../atoms/circular_img.dart';
+import '../molecule/deadline_assistant.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -144,9 +145,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               borderRadius: 25,
                               toggleSize: 20,
                               toggleColor: Colors.white,
-                              activeColor: toggleValue == true
-                                  ? Colors.lightGreen
-                                  : Colors.grey,
+                              activeColor: toggleValue == true ? Colors.lightGreen : Colors.grey,
                               onToggle: ((val) {
                                 setState(() {
                                   toggleValue = val;
@@ -194,7 +193,152 @@ class _HomeScreenState extends State<HomeScreen> {
                     SizedBox(
                       height: 10,
                     ),
-                    Center(child: TripCommitment()),
+                    Center(child: Container(
+                      width: screenWidth - 40,
+                      height: 196,
+                      decoration: BoxDecoration(
+                        color: Color(0xffFBFBFC),
+                        border: Border.all(color: const Color(0xffF3F3F4), width: 1),
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                      child: Column(
+                        children: [
+                          const Row(
+                            children: [
+                              Padding(
+                                padding: EdgeInsets.only(top: 18, left: 16),
+                                child: Text(
+                                  'Travel buddies trip commitment',
+                                  style: textS612,
+                                ),
+                              )
+                            ],
+                          ),
+                          SizedBox(
+                            height: 5,
+                          ),
+                          SizedBox(
+                            width: screenWidth - 72,
+                            height: 58,
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Icon(
+                                  Icons.money_sharp,
+                                  color: Color(0xff757575),
+                                  size: 20,
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.fromLTRB(5, 3, 0, 0),
+                                  child: SizedBox(
+                                    height: 58,
+                                    width: 37,
+                                    child: Column(
+                                      children: [
+                                        CircularImg(
+                                            pathP: 'assets/wonder.png',
+                                            color1: Color(0xff883D1A),
+                                            width1: 32,
+                                            height1: 32),
+                                        Text(
+                                          'Wonder\n Safari',
+                                          style: textS907,
+                                        )
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                                Expanded(
+                                  // height: 34,
+                                  // width: 110,
+                                  child: Text(
+                                    'Set \$350 for all buddies to make deposit payment towards flight',
+                                    style: textS1,
+                                    textAlign: TextAlign.center,
+                                  ),
+                                )
+                              ],
+                            ),
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Divider(
+                            thickness: 1,
+                            color: Color(0xffF3F3F4),
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Row(
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.only(left: 16.0),
+                                child: Text(
+                                  'Your automated trip funding plan of \$1,265',
+                                  style: textS612,
+                                ),
+                              ),
+                            ],
+                          ),
+                          SizedBox(
+                            width: screenWidth - 72,
+                            height: 47,
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                const Column(
+                                  children: [
+                                    Padding(
+                                      padding: EdgeInsets.only(top: 6),
+                                      child: Icon(
+                                        Icons.access_alarm,
+                                        color: Color(0xff757575),
+                                        size: 20,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                Expanded(
+                                  child: Text(
+                                    'Split in 11 top-up cycles on the last Friday of every month.',
+                                    style: textS1,
+                                    textAlign: TextAlign.center,
+                                  ),
+                                ),
+                                GestureDetector(
+                                    onTap: () {
+                                      showModalBottomSheet(
+                                          backgroundColor: Colors.transparent,
+                                          isScrollControlled: true,
+                                          context: context,
+                                          clipBehavior: Clip.antiAliasWithSaveLayer,
+                                          builder: (context) {
+                                            return Container(
+                                                width: screenWidth,
+                                                height: 607,
+                                                decoration: BoxDecoration(
+                                                    borderRadius: BorderRadius.only(
+                                                      topRight: Radius.circular(20.0),
+                                                      topLeft: Radius.circular(20.0), // Set the top-right radius
+                                                    ),
+                                                    color: Colors.white),
+                                                child: toggleValue == false ? AutomatedPopup() : HomeScreenPopup());
+                                          });
+                                    },
+                                    child: const Padding(
+                                      padding: EdgeInsets.only(top: 12),
+                                      child: Text(
+                                        'Change',
+                                        style: textS2,
+                                      ),
+                                    )),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    )),
                     SizedBox(
                       height: 20,
                     ),
@@ -221,11 +365,20 @@ class _HomeScreenState extends State<HomeScreen> {
                     height: toggleValue == false ? 20 : 25,
                   ),
                   GestureDetector(
-                      onTap: () {
+                      onTap: () async {
+                        setState(() {
+
+                        });
+                        var shareP = await SharedPreferences.getInstance();
+                        shareP.setBool(DeadLineAssistantState.KEYLOGIN, toggleValue);
+                        var shareP2 = await SharedPreferences.getInstance();
+                        shareP2.setBool(TravelBankPopupState.KEYLOGIN, toggleValue);
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => const FundingPlan()));
+                                builder: (context) => const FundingPlan()
+                            )
+                        );
                       },
                       child:
                           ButtonMulti(title: 'Save wish & view funding plan')),

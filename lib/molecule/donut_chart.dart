@@ -20,6 +20,7 @@ class _DonutChartState extends State<DonutChart> {
 
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
     return SfCircularChart(
       title: ChartTitle(
           text: 'This month’s top-up for all travels', textStyle: textS616B),
@@ -31,14 +32,18 @@ class _DonutChartState extends State<DonutChart> {
               children: [
                 Text(
                   '\$',
-                  style: textS632B,
+                  style: screenWidth < 350 && screenWidth > 319 ?  textS614:
+                    screenWidth > 349 && screenWidth < 400 ?  textS614 :
+                      screenWidth > 400 ? textS632B : textS614,
                 ),
                 Countup(
                   begin: 0,
                   end: 210,
                   duration: Duration(seconds: 2),
                   separator: ',',
-                  style: textS632B,
+                  style: screenWidth < 350 && screenWidth > 319 ?  textS614:
+                    screenWidth > 350 && screenWidth < 400 ? textS616B :
+                      screenWidth > 400 ? textS632B : textS614
                 ),
               ],
             ),
@@ -47,7 +52,9 @@ class _DonutChartState extends State<DonutChart> {
       ],
       series: <CircularSeries>[
         DoughnutSeries<GDPData, String>(
-          radius: "70%",
+          radius: screenWidth < 350 && screenWidth > 320 ?  "50%" :
+            screenWidth > 349 && screenWidth < 400 ?  "70%" :
+              screenWidth > 399 ? "75%" : "57%",
           dataSource: _chartData,
           xValueMapper: (GDPData data, _) => data.continent,
           yValueMapper: (GDPData data, _) => data.gdp,
@@ -58,25 +65,23 @@ class _DonutChartState extends State<DonutChart> {
               labelPosition: ChartDataLabelPosition.outside,
               connectorLineSettings: ConnectorLineSettings(
                   // Type of the connector line
-                  length: '5%',
+                  length: '10%',
                   type: ConnectorType.line),
               builder: (dynamic data, dynamic point, dynamic series,
                   int pointIndex, int seriesIndex) {
                 return SizedBox(
-                  height: 40,
-                  width: 90,
-                  child: Container(
-                    child: Column(children: [
-                      Text(
-                        '2026 (2 cities)',
-                        style: textS3,
-                      ),
-                      Text(
-                        '\$30',
-                        style: textS614B,
-                      ),
-                    ]),
-                  ),
+                  height: 20,
+                  width: 60,
+                  child: Column(children: [
+                    Text(
+                      '2026 (2 cities)',
+                      style: textS804G,
+                    ),
+                    Text(
+                      '\$30',
+                      style: textS806G,
+                    ),
+                  ]),
                 );
 
                 // return Text(
@@ -92,11 +97,12 @@ class _DonutChartState extends State<DonutChart> {
 
   List<GDPData> getChartData() {
     final List<GDPData> data = [
-      GDPData('oce', 30),
-      GDPData('S Ame', 10),
-      GDPData('Asia', 30),
-      GDPData('europ', 70),
-      GDPData('oce', 70),
+      GDPData('oce', 60),
+      GDPData('oce', 50),
+      GDPData('S Ame', 50),
+      GDPData('Asia', 50),
+      GDPData('europ', 60),
+
     ];
     return data;
   }

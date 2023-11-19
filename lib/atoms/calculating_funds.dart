@@ -10,7 +10,7 @@ class CalculatingFunds extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.fromLTRB(0, 90, 0, 16),
       child: SizedBox(
-        width: screenWidth - 20,
+        width: screenWidth - 10,
         child: Center(
           child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -25,13 +25,13 @@ class CalculatingFunds extends StatelessWidget {
                     SizedBox(
                       width: screenWidth - 58,
                       child: const Text(
-                        'Calculating your estimated budget for entire trip...',
+                        'Calculating your estimated budget for ',
                         style: textS12,
                         textAlign: TextAlign.center,
                       ),
                     ),
                     const Text(
-                      'Please wait!',
+                      'entire trip. Please wait!',
                       style: textS12,
                     ),
                   ],

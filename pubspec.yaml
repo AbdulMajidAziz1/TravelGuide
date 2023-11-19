@@ -33,6 +33,7 @@ dependencies:
   intl: ^0.17.0
   fl_chart: ^0.64.0
   sliding_up_panel: ^2.0.0+1
+  shared_preferences: ^2.2.2
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -51,7 +52,7 @@ dev_dependencies:
   flutter_launcher_icons: ^0.13.1
 
 flutter_icons:
-  image_path: "assets/app_icon.jpeg"
+  image_path: "assets/app_icon1.png"
   android: true
   ios: true
 

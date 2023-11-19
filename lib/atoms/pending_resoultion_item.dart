@@ -32,7 +32,7 @@ class _PendingResolutionItemState extends State<PendingResolutionItem> {
     final screenWidth = MediaQuery.of(context).size.width;
     return SizedBox(
       width: screenWidth,
-      height: 56,
+      height: 65,
       child: Container(
         decoration: ShapeDecoration(
           color: Colors.white,
@@ -84,6 +84,61 @@ class _PendingResolutionItemState extends State<PendingResolutionItem> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
+                  screenWidth < 370 ? Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Row(
+                        children: [
+                          Image(
+                            image: AssetImage('assets/flag.png'),
+                            height: 16,
+                            width: 16,
+                          ),
+                          SizedBox(
+                            width: 4,
+                          ),
+                          Text(widget.title, style: textS614),
+                        ],
+                      ),
+                      SizedBox(
+                        height: 4,
+                      ),
+                      Row(
+                        children: [
+                          Text("${widget.primarySubtitleAmount} ",
+                              style: textS3C7),
+                          Text("${widget.primarySubtitleText} ",
+                              style: textS3C),
+                          SizedBox(
+                            width: 2,
+                          ),
+                          widget.action == 'View'
+                              ? Image(
+                            image: AssetImage('assets/arrow-up.png'),
+                            height: 12,
+                            width: 12,
+                          )
+                              : Container(),
+                          Text(
+                            "${widget.secondarySubtitleAmount} ",
+                            style: TextStyle(
+                              fontWeight: FontWeight.w700,
+                              fontSize: 10,
+                              fontFamily: 'Inter',
+                              color: Color(0xffff3b30),
+                            ),
+                          ),
+                        ],
+                      ),
+                      Center(
+                        child: Text("${widget.secondarySubtitleText} ",
+                          style: textS3,
+                          overflow: TextOverflow.ellipsis,
+                          maxLines: 1,
+                        ),
+                      ),
+                    ],
+                  ) :
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -114,10 +169,10 @@ class _PendingResolutionItemState extends State<PendingResolutionItem> {
                           ),
                           widget.action == 'View'
                               ? Image(
-                                  image: AssetImage('assets/arrow-up.png'),
-                                  height: 12,
-                                  width: 12,
-                                )
+                            image: AssetImage('assets/arrow-up.png'),
+                            height: 12,
+                            width: 12,
+                          )
                               : Container(),
                           Text(
                             "${widget.secondarySubtitleAmount} ",
@@ -129,7 +184,10 @@ class _PendingResolutionItemState extends State<PendingResolutionItem> {
                             ),
                           ),
                           Text("${widget.secondarySubtitleText} ",
-                              style: textS3),
+                            style: textS3,
+                            overflow: TextOverflow.ellipsis,
+                            maxLines: 1,
+                          ),
                         ],
                       )
                     ],

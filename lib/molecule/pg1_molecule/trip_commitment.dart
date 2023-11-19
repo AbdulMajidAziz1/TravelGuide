@@ -5,6 +5,7 @@ import '../../atoms/Pop_ups/automated_popup.dart';
 import '../../atoms/circular_img.dart';
 
 class TripCommitment extends StatefulWidget {
+
   const TripCommitment({super.key});
 
   @override
@@ -142,8 +143,7 @@ class _TripCommitmentState extends State<TripCommitment> {
                                 decoration: BoxDecoration(
                                     borderRadius: BorderRadius.only(
                                       topRight: Radius.circular(20.0),
-                                      topLeft: Radius.circular(
-                                          20.0), // Set the top-right radius
+                                      topLeft: Radius.circular(20.0), // Set the top-right radius
                                     ),
                                     color: Colors.white),
                                 child: AutomatedPopup());

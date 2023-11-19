@@ -13,7 +13,6 @@ class BudgetSelector extends StatefulWidget {
 
 class _BudgetSelectorState extends State<BudgetSelector> {
   var var2 = 4000;
-
   @override
   Widget build(BuildContext context) {
     final formattedNumber = intl.NumberFormat.decimalPattern().format(var2);
@@ -38,7 +37,11 @@ class _BudgetSelectorState extends State<BudgetSelector> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              '\$$formattedNumber ',
+              '£',
+              style: textS632B,
+            ),
+            Text(
+              '$formattedNumber ',
               style: textS632B,
             ),
             Text(
@@ -107,7 +110,7 @@ class _BudgetSelectorState extends State<BudgetSelector> {
           width: 245,
           child: Slider(
             value: var2.toDouble(),
-            min: 1265,
+            min: 0,
             max: 10000,
             label: var2.round().toString(),
             inactiveColor: Color(0xffD9D9D9),
@@ -126,17 +129,37 @@ class _BudgetSelectorState extends State<BudgetSelector> {
         SizedBox(
           height: 20,
           width: 245,
-          child: const Row(
+          child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
                 'Modest',
                 style: textS3,
               ),
-              Text(
-                '\$5,500 - \$10,000',
+              var2 < 100 ? Text(
+                'under £100',
                 style: textS3,
-              ),
+              )
+                  : var2 >= 100 && var2<=500 ? Text(
+                '£100 - £500',
+                style: textS3,
+              ) :
+                    var2 >= 501 && var2<1000 ? Text(
+                '£501 - £1,000',
+                style: textS3,
+              ) :
+                    var2 >= 1000 && var2<2500 ? Text(
+                      '£1,000 - £2,500',
+                      style: textS3,
+                    ) :
+                    var2 >= 2500 && var2<5000 ? Text(
+                      '£2,500 - £5,000',
+                      style: textS3,
+                    ) :
+                    Text(
+                      'above £5,000',
+                      style: textS3,
+                    ) ,
               Text(
                 'Luxury',
                 style: textS3,
@@ -164,6 +187,7 @@ class _BudgetSelectorState extends State<BudgetSelector> {
                   ),
                 ),
               ),
+              SizedBox(width: 3,),
               Text(
                 '50%',
                 style: textS411G,
@@ -187,7 +211,7 @@ class _BudgetSelectorState extends State<BudgetSelector> {
                 style: textS411G,
               ),
               Image(
-                image: AssetImage('assets/food.png'),
+                image: AssetImage('assets/my_food.png'),
                 height: 16,
                 width: 16,
               ),
@@ -243,7 +267,7 @@ void showFormattedNumberDialog(BuildContext context) {
                     style: textS12Bold,
                   ),
                   TextSpan(
-                    text: 'will be necessary\nfor your essential bookings during \nthis trip.',
+                    text: 'will be \nnecessary for your essential \nbookings during this trip.',
                     style: textS12,
                   ),
                 ],

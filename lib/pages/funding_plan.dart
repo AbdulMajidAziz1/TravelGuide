@@ -55,45 +55,32 @@ class _FundingPlanState extends State<FundingPlan> {
             height: 20,
           ),
           Text(
-            'Trip will be created when the ',
+            'Trip will be created when the minimum ',
             style: textS414G,
           ),
           SizedBox(
             height: 5,
           ),
-          Container(
-            height: 20,
-            width: 375,
-            child: const Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                SizedBox(
-                  height: 20,
-                  width: 287,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        'minimum number of ',
-                        style: textS414G,
-                      ),
-                      Text(
-                        '8 travellers ',
-                        style: textS414B,
-                      ),
-                      Text(
-                        'is reached!',
-                        style: textS414G,
-                      ),
-                    ],
-                  ),
-                ),
-                Text(
-                  'Change',
-                  style: textS2,
-                )
-              ],
-            ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                'number of ',
+                style: textS414G,
+              ),
+              Text(
+                '8 travellers ',
+                style: textS414B,
+              ),
+              Text(
+                'is reached!  ',
+                style: textS414G,
+              ),
+              Text(
+                ' Change',
+                style: textS2,
+              ),
+            ],
           ),
           SizedBox(
             height: 50,
