@@ -347,23 +347,7 @@ class DeadLineAssistantState extends State<DeadLineAssistant> {
                                     children: [
                                       Text('£', style: textS614),
 
-                                      istrue == false ? Countup(
-                                          begin: 0,
-                                          end: index == 0 ? previousPlanData[0]['total'].toDouble() :
-                                               index == 1 ? previousPlanData[1]['total'].toDouble() :
-                                               index == 2 ? previousPlanData[2]['total'].toDouble() :
-                                               index == 3 ? previousPlanData[3]['total'].toDouble() :
-                                               index == 4 ? previousPlanData[4]['total'].toDouble() :
-                                               index == 5 ? previousPlanData[5]['total'].toDouble() :
-                                               index == 6 ? previousPlanData[6]['total'].toDouble() :
-                                               index == 7 ? previousPlanData[7]['total'].toDouble() :
-                                               index == 8 ? previousPlanData[8]['total'].toDouble() :
-                                               index == 9 ? previousPlanData[9]['total'].toDouble() :
-                                               index == 10 ? previousPlanData[10]['total'].toDouble() : previousPlanData[11]['total'].toDouble(),
-                                          duration: Duration(seconds: 2),
-                                          separator: ',',
-                                          style: textS614) :
-                                      Countup(
+                                      istrue == true ? Countup(
                                           begin: 0,
                                           end: index == 0 ? updatedPlanData[0]['total'].toDouble() :
                                           index == 1 ? updatedPlanData[1]['total'].toDouble() :
@@ -378,7 +362,24 @@ class DeadLineAssistantState extends State<DeadLineAssistant> {
                                           index == 10 ? updatedPlanData[10]['total'].toDouble() : updatedPlanData[11]['total'].toDouble(),
                                           duration: Duration(seconds: 2),
                                           separator: ',',
-                                          style: textS614),
+                                          style: textS614) :
+                                      Countup(
+                                          begin: 0,
+                                          end: index == 0 ? previousPlanData[0]['total'].toDouble() :
+                                          index == 1 ? previousPlanData[1]['total'].toDouble() :
+                                          index == 2 ? previousPlanData[2]['total'].toDouble() :
+                                          index == 3 ? previousPlanData[3]['total'].toDouble() :
+                                          index == 4 ? previousPlanData[4]['total'].toDouble() :
+                                          index == 5 ? previousPlanData[5]['total'].toDouble() :
+                                          index == 6 ? previousPlanData[6]['total'].toDouble() :
+                                          index == 7 ? previousPlanData[7]['total'].toDouble() :
+                                          index == 8 ? previousPlanData[8]['total'].toDouble() :
+                                          index == 9 ? previousPlanData[9]['total'].toDouble() :
+                                          index == 10 ? previousPlanData[10]['total'].toDouble() : previousPlanData[11]['total'].toDouble(),
+                                          duration: Duration(seconds: 2),
+                                          separator: ',',
+                                          style: textS614)
+                                      ,
                                     ],
                                   )
                                 ],
@@ -395,41 +396,41 @@ class DeadLineAssistantState extends State<DeadLineAssistant> {
                                 Column(
                                   mainAxisAlignment: MainAxisAlignment.end,
                                   children: [
-                                    istrue == false ? Text("£${
-                                      index == 0 ? previousPlanData[0]['flight'] :
-                                      index == 1 ? previousPlanData[1]['flight'] :
-                                      index == 2 ? previousPlanData[2]['flight'] :
-                                      index == 3 ? previousPlanData[3]['flight'] :
-                                      index == 4 ? previousPlanData[4]['flight'] :
-                                      index == 5 ? previousPlanData[5]['flight'] :
-                                      index == 6 ? previousPlanData[6]['flight'] :
-                                      index == 7 ? previousPlanData[7]['flight'] :
-                                      index == 8 ? previousPlanData[8]['flight'] :
-                                      index == 9 ? previousPlanData[9]['flight'] :
-                                      index == 10 ? previousPlanData[10]['flight'] : previousPlanData[11]['flight']
+                                    istrue == true ? Text("£${
+                                        index == 0 ? updatedPlanData[0]['flight'] :
+                                        index == 1 ? updatedPlanData[1]['flight'] :
+                                        index == 2 ? updatedPlanData[2]['flight'] :
+                                        index == 3 ? updatedPlanData[3]['flight'] :
+                                        index == 4 ? updatedPlanData[4]['flight'] :
+                                        index == 5 ? updatedPlanData[5]['flight'] :
+                                        index == 6 ? updatedPlanData[6]['flight'] :
+                                        index == 7 ? updatedPlanData[7]['flight'] :
+                                        index == 8 ? updatedPlanData[8]['flight'] :
+                                        index == 9 ? updatedPlanData[9]['flight'] :
+                                        index == 10 ? updatedPlanData[10]['flight'] : updatedPlanData[11]['flight']
                                     } ",
                                       style: TextStyle(
-                                        color: Color(0xFFD0D0D5),
+                                        color: index == 0 ? Color(0xFFD0D0D5) : Color(0xFF757575,),
                                         fontSize: 14,
                                         fontFamily: 'Inter',
                                         fontWeight: FontWeight.w400,
                                       ),
                                     ) :
                                     Text("£${
-                                      index == 0 ? updatedPlanData[0]['flight'] :
-                                      index == 1 ? updatedPlanData[1]['flight'] :
-                                      index == 2 ? updatedPlanData[2]['flight'] :
-                                      index == 3 ? updatedPlanData[3]['flight'] :
-                                      index == 4 ? updatedPlanData[4]['flight'] :
-                                      index == 5 ? updatedPlanData[5]['flight'] :
-                                      index == 6 ? updatedPlanData[6]['flight'] :
-                                      index == 7 ? updatedPlanData[7]['flight'] :
-                                      index == 8 ? updatedPlanData[8]['flight'] :
-                                      index == 9 ? updatedPlanData[9]['flight'] :
-                                      index == 10 ? updatedPlanData[10]['flight'] : updatedPlanData[11]['flight']
+                                        index == 0 ? previousPlanData[0]['flight'] :
+                                        index == 1 ? previousPlanData[1]['flight'] :
+                                        index == 2 ? previousPlanData[2]['flight'] :
+                                        index == 3 ? previousPlanData[3]['flight'] :
+                                        index == 4 ? previousPlanData[4]['flight'] :
+                                        index == 5 ? previousPlanData[5]['flight'] :
+                                        index == 6 ? previousPlanData[6]['flight'] :
+                                        index == 7 ? previousPlanData[7]['flight'] :
+                                        index == 8 ? previousPlanData[8]['flight'] :
+                                        index == 9 ? previousPlanData[9]['flight'] :
+                                        index == 10 ? previousPlanData[10]['flight'] : previousPlanData[11]['flight']
                                     } ",
                                       style: TextStyle(
-                                        color: index == 0 ? Color(0xFFD0D0D5) : Color(0xFF757575,),
+                                        color: Color(0xFFD0D0D5),
                                         fontSize: 14,
                                         fontFamily: 'Inter',
                                         fontWeight: FontWeight.w400,
@@ -440,39 +441,39 @@ class DeadLineAssistantState extends State<DeadLineAssistant> {
                                 Column(
                                   mainAxisAlignment: MainAxisAlignment.end,
                                   children: [
-                                    istrue == false ? Text("£${
-                                      index == 0 ? previousPlanData[0]['stays'] :
-                                      index == 1 ? previousPlanData[1]['stays'] :
-                                      index == 2 ? previousPlanData[2]['stays'] :
-                                      index == 3 ? previousPlanData[3]['stays'] :
-                                      index == 4 ? previousPlanData[4]['stays'] :
-                                      index == 5 ? previousPlanData[5]['stays'] :
-                                      index == 6 ? previousPlanData[6]['stays'] :
-                                      index == 7 ? previousPlanData[7]['stays'] :
-                                      index == 8 ? previousPlanData[8]['stays'] :
-                                      index == 9 ? previousPlanData[9]['stays'] :
-                                      index == 10 ? previousPlanData[10]['stays'] : previousPlanData[11]['stays']} ",
+                                    istrue == true ? Text("£${
+                                        index == 0 ? updatedPlanData[0]['stays'] :
+                                        index == 1 ? updatedPlanData[1]['stays'] :
+                                        index == 2 ? updatedPlanData[2]['stays'] :
+                                        index == 3 ? updatedPlanData[3]['stays'] :
+                                        index == 4 ? updatedPlanData[4]['stays'] :
+                                        index == 5 ? updatedPlanData[5]['stays'] :
+                                        index == 6 ? updatedPlanData[6]['stays'] :
+                                        index == 7 ? updatedPlanData[7]['stays'] :
+                                        index == 8 ? updatedPlanData[8]['stays'] :
+                                        index == 9 ? updatedPlanData[9]['stays'] :
+                                        index == 10 ? updatedPlanData[10]['stays'] : updatedPlanData[11]['stays']} ",
                                       style: TextStyle(
-                                        color: Color(0xFFD0D0D5),
+                                        color: index == 0 ? Color(0xFFD0D0D5) : Color(0xFF757575,),
                                         fontSize: 14,
                                         fontFamily: 'Inter',
                                         fontWeight: FontWeight.w400,
                                       ),
                                     ) :
                                     Text("£${
-                                      index == 0 ? updatedPlanData[0]['stays'] :
-                                      index == 1 ? updatedPlanData[1]['stays'] :
-                                      index == 2 ? updatedPlanData[2]['stays'] :
-                                      index == 3 ? updatedPlanData[3]['stays'] :
-                                      index == 4 ? updatedPlanData[4]['stays'] :
-                                      index == 5 ? updatedPlanData[5]['stays'] :
-                                      index == 6 ? updatedPlanData[6]['stays'] :
-                                      index == 7 ? updatedPlanData[7]['stays'] :
-                                      index == 8 ? updatedPlanData[8]['stays'] :
-                                      index == 9 ? updatedPlanData[9]['stays'] :
-                                      index == 10 ? updatedPlanData[10]['stays'] : updatedPlanData[11]['stays']} ",
+                                        index == 0 ? previousPlanData[0]['stays'] :
+                                        index == 1 ? previousPlanData[1]['stays'] :
+                                        index == 2 ? previousPlanData[2]['stays'] :
+                                        index == 3 ? previousPlanData[3]['stays'] :
+                                        index == 4 ? previousPlanData[4]['stays'] :
+                                        index == 5 ? previousPlanData[5]['stays'] :
+                                        index == 6 ? previousPlanData[6]['stays'] :
+                                        index == 7 ? previousPlanData[7]['stays'] :
+                                        index == 8 ? previousPlanData[8]['stays'] :
+                                        index == 9 ? previousPlanData[9]['stays'] :
+                                        index == 10 ? previousPlanData[10]['stays'] : previousPlanData[11]['stays']} ",
                                       style: TextStyle(
-                                        color: index == 0 ? Color(0xFFD0D0D5) : Color(0xFF757575,),
+                                        color: Color(0xFFD0D0D5),
                                         fontSize: 14,
                                         fontFamily: 'Inter',
                                         fontWeight: FontWeight.w400,
@@ -483,18 +484,18 @@ class DeadLineAssistantState extends State<DeadLineAssistant> {
                                 Column(
                                   mainAxisAlignment: MainAxisAlignment.end,
                                   children: [
-                                    istrue == false ? Text("£${
-                                      index == 0 ? previousPlanData[0]['activities'] :
-                                      index == 1 ? previousPlanData[1]['activities'] :
-                                      index == 2 ? previousPlanData[2]['activities'] :
-                                      index == 3 ? previousPlanData[3]['activities'] :
-                                      index == 4 ? previousPlanData[4]['activities'] :
-                                      index == 5 ? previousPlanData[5]['activities'] :
-                                      index == 6 ? previousPlanData[6]['activities'] :
-                                      index == 7 ? previousPlanData[7]['activities'] :
-                                      index == 8 ? previousPlanData[8]['activities'] :
-                                      index == 9 ? previousPlanData[9]['activities'] :
-                                      index == 10 ? previousPlanData[10]['activities'] : previousPlanData[11]['activities'] }",
+                                    istrue == true ? Text("£${
+                                        index == 0 ? updatedPlanData[0]['activities'] :
+                                        index == 1 ? updatedPlanData[1]['activities'] :
+                                        index == 2 ? updatedPlanData[2]['activities'] :
+                                        index == 3 ? updatedPlanData[3]['activities'] :
+                                        index == 4 ? updatedPlanData[4]['activities'] :
+                                        index == 5 ? updatedPlanData[5]['activities'] :
+                                        index == 6 ? updatedPlanData[6]['activities'] :
+                                        index == 7 ? updatedPlanData[7]['activities'] :
+                                        index == 8 ? updatedPlanData[8]['activities'] :
+                                        index == 9 ? updatedPlanData[9]['activities'] :
+                                        index == 10 ? updatedPlanData[10]['activities'] : updatedPlanData[11]['activities']}",
                                       style: TextStyle(
                                         color: Color(0xFF757575),
                                         fontSize: 14,
@@ -503,62 +504,63 @@ class DeadLineAssistantState extends State<DeadLineAssistant> {
                                       ),
                                     ) :
                                     Text("£${
-                                      index == 0 ? updatedPlanData[0]['activities'] :
-                                      index == 1 ? updatedPlanData[1]['activities'] :
-                                      index == 2 ? updatedPlanData[2]['activities'] :
-                                      index == 3 ? updatedPlanData[3]['activities'] :
-                                      index == 4 ? updatedPlanData[4]['activities'] :
-                                      index == 5 ? updatedPlanData[5]['activities'] :
-                                      index == 6 ? updatedPlanData[6]['activities'] :
-                                      index == 7 ? updatedPlanData[7]['activities'] :
-                                      index == 8 ? updatedPlanData[8]['activities'] :
-                                      index == 9 ? updatedPlanData[9]['activities'] :
-                                      index == 10 ? updatedPlanData[10]['activities'] : updatedPlanData[11]['activities']}",
+                                        index == 0 ? previousPlanData[0]['activities'] :
+                                        index == 1 ? previousPlanData[1]['activities'] :
+                                        index == 2 ? previousPlanData[2]['activities'] :
+                                        index == 3 ? previousPlanData[3]['activities'] :
+                                        index == 4 ? previousPlanData[4]['activities'] :
+                                        index == 5 ? previousPlanData[5]['activities'] :
+                                        index == 6 ? previousPlanData[6]['activities'] :
+                                        index == 7 ? previousPlanData[7]['activities'] :
+                                        index == 8 ? previousPlanData[8]['activities'] :
+                                        index == 9 ? previousPlanData[9]['activities'] :
+                                        index == 10 ? previousPlanData[10]['activities'] : previousPlanData[11]['activities'] }",
                                       style: TextStyle(
                                         color: Color(0xFF757575),
                                         fontSize: 14,
                                         fontFamily: 'Inter',
                                         fontWeight: FontWeight.w400,
                                       ),
-                                    ),
+                                    )
+                                    ,
                                   ],
                                 ),
                                 Column(
                                   mainAxisAlignment: MainAxisAlignment.end,
                                   children: [
-                                    istrue == false ? Text("£${
-                                      index == 0 ? previousPlanData[0]['meals'] :
-                                      index == 1 ? previousPlanData[1]['meals'] :
-                                      index == 2 ? previousPlanData[2]['meals'] :
-                                      index == 3 ? previousPlanData[3]['meals'] :
-                                      index == 4 ? previousPlanData[4]['meals'] :
-                                      index == 5 ? previousPlanData[5]['meals'] :
-                                      index == 6 ? previousPlanData[6]['meals'] :
-                                      index == 7 ? previousPlanData[7]['meals'] :
-                                      index == 8 ? previousPlanData[8]['meals'] :
-                                      index == 9 ? previousPlanData[9]['meals'] :
-                                      index == 10 ? previousPlanData[10]['meals'] : previousPlanData[11]['meals']} ",
+                                    istrue == true ? Text("£${
+                                        index == 0 ? updatedPlanData[0]['meals'] :
+                                        index == 1 ? updatedPlanData[1]['meals'] :
+                                        index == 2 ? updatedPlanData[2]['meals'] :
+                                        index == 3 ? updatedPlanData[3]['meals'] :
+                                        index == 4 ? updatedPlanData[4]['meals'] :
+                                        index == 5 ? updatedPlanData[5]['meals'] :
+                                        index == 6 ? updatedPlanData[6]['meals'] :
+                                        index == 7 ? updatedPlanData[7]['meals'] :
+                                        index == 8 ? updatedPlanData[8]['meals'] :
+                                        index == 9 ? updatedPlanData[9]['meals'] :
+                                        index == 10 ? updatedPlanData[10]['meals'] : updatedPlanData[11]['meals']}",
                                       style: TextStyle(
-                                        color: Color(0xFFD0D0D5),
+                                        color: index == 0 ? Color(0xFFD0D0D5) : Color(0xFF757575,),
                                         fontSize: 14,
                                         fontFamily: 'Inter',
                                         fontWeight: FontWeight.w400,
                                       ),
                                     ) :
                                     Text("£${
-                                      index == 0 ? updatedPlanData[0]['meals'] :
-                                      index == 1 ? updatedPlanData[1]['meals'] :
-                                      index == 2 ? updatedPlanData[2]['meals'] :
-                                      index == 3 ? updatedPlanData[3]['meals'] :
-                                      index == 4 ? updatedPlanData[4]['meals'] :
-                                      index == 5 ? updatedPlanData[5]['meals'] :
-                                      index == 6 ? updatedPlanData[6]['meals'] :
-                                      index == 7 ? updatedPlanData[7]['meals'] :
-                                      index == 8 ? updatedPlanData[8]['meals'] :
-                                      index == 9 ? updatedPlanData[9]['meals'] :
-                                      index == 10 ? updatedPlanData[10]['meals'] : updatedPlanData[11]['meals']}",
+                                        index == 0 ? previousPlanData[0]['meals'] :
+                                        index == 1 ? previousPlanData[1]['meals'] :
+                                        index == 2 ? previousPlanData[2]['meals'] :
+                                        index == 3 ? previousPlanData[3]['meals'] :
+                                        index == 4 ? previousPlanData[4]['meals'] :
+                                        index == 5 ? previousPlanData[5]['meals'] :
+                                        index == 6 ? previousPlanData[6]['meals'] :
+                                        index == 7 ? previousPlanData[7]['meals'] :
+                                        index == 8 ? previousPlanData[8]['meals'] :
+                                        index == 9 ? previousPlanData[9]['meals'] :
+                                        index == 10 ? previousPlanData[10]['meals'] : previousPlanData[11]['meals']} ",
                                       style: TextStyle(
-                                        color: index == 0 ? Color(0xFFD0D0D5) : Color(0xFF757575,),
+                                        color: Color(0xFFD0D0D5),
                                         fontSize: 14,
                                         fontFamily: 'Inter',
                                         fontWeight: FontWeight.w400,
