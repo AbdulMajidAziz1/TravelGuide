@@ -246,7 +246,7 @@ class _HomeScreenPopupState extends State<HomeScreenPopup> {
                                       return Row(
                                         children: [
                                           SizedBox(
-                                            width: 64,
+                                            width: screenWidth < 321 ? 64 : 71,
                                             height: 103.25,
                                             child: Column(
                                               mainAxisSize: MainAxisSize.min,
@@ -353,7 +353,7 @@ class _HomeScreenPopupState extends State<HomeScreenPopup> {
                                                               textAlign: TextAlign.center,
                                                               style: TextStyle(
                                                                 color: Color(0xFF757575),
-                                                                fontSize: 9,
+                                                                fontSize: screenWidth < 321 ? 9: 10,
                                                                 fontFamily: 'Inter',
                                                                 fontWeight: FontWeight.w600,
                                                               ),
@@ -569,7 +569,7 @@ class _HomeScreenPopupState extends State<HomeScreenPopup> {
                               return Row(
                                 children: [
                                   SizedBox(
-                                    width: 64,
+                                    width: screenWidth < 321 ? 64: 71,
                                     height: 103.25,
                                     child: Column(
                                       mainAxisSize: MainAxisSize.min,
@@ -676,7 +676,7 @@ class _HomeScreenPopupState extends State<HomeScreenPopup> {
                                                       textAlign: TextAlign.center,
                                                       style: TextStyle(
                                                         color: Color(0xFF757575),
-                                                        fontSize: 9,
+                                                        fontSize: screenWidth < 321 ? 9: 10,
                                                         fontFamily: 'Inter',
                                                         fontWeight: FontWeight.w600,
                                                       ),

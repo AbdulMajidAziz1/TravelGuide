@@ -233,11 +233,6 @@ class _FundingPlanState extends State<FundingPlan> {
               children: [
                 const SingleLine(),
                 buddiesJoined >= 2 ? SingleLine() : EmptyLine(),
-                buddiesJoined == 2
-                    ? EmptyLine()
-                    : buddiesJoined < 2
-                        ? WhiteLine()
-                        : SingleLine(),
                 buddiesJoined == 3
                     ? EmptyLine()
                     : buddiesJoined < 3
@@ -248,6 +243,11 @@ class _FundingPlanState extends State<FundingPlan> {
                     : buddiesJoined < 4
                         ? WhiteLine()
                         : SingleLine(),
+                buddiesJoined == 5
+                    ? EmptyLine()
+                    : buddiesJoined < 5
+                        ? WhiteLine()
+                        : buddiesJoined < 8 ? EmptyLine() : SingleLine(),
               ],
             ),
           ),
@@ -336,31 +336,6 @@ class _FundingPlanState extends State<FundingPlan> {
               ],
             ),
           ),
-          // Container(
-          //   height: 15,
-          //   width: 150,
-          //   child: const Row(
-          //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          //     children: [
-          //       Text(
-          //         'Paul',
-          //         style: textS9043,
-          //       ),
-          //       Text(
-          //         'Steve',
-          //         style: textS9043,
-          //       ),
-          //       Text(
-          //         'Paula',
-          //         style: textS9043,
-          //       ),
-          //       Text(
-          //         '+3 others',
-          //         style: textS9043,
-          //       ),
-          //     ],
-          //   ),
-          // ),
           SizedBox(
             height: 10,
           ),
