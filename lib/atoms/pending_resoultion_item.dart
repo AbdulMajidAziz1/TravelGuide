@@ -112,6 +112,11 @@ class _PendingResolutionItemState extends State<PendingResolutionItem> {
                           SizedBox(
                             width: 2,
                           ),
+
+                        ],
+                      ),
+                      Row(
+                        children: [
                           widget.action == 'View'
                               ? Image(
                             image: AssetImage('assets/arrow-up.png'),
@@ -128,14 +133,14 @@ class _PendingResolutionItemState extends State<PendingResolutionItem> {
                               color: Color(0xffff3b30),
                             ),
                           ),
+                          Center(
+                            child: Text("${widget.secondarySubtitleText} ",
+                              style: textS3,
+                              overflow: TextOverflow.ellipsis,
+                              maxLines: 1,
+                            ),
+                          ),
                         ],
-                      ),
-                      Center(
-                        child: Text("${widget.secondarySubtitleText} ",
-                          style: textS3,
-                          overflow: TextOverflow.ellipsis,
-                          maxLines: 1,
-                        ),
                       ),
                     ],
                   ) :

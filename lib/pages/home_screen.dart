@@ -8,6 +8,7 @@ import 'package:login/pages/funding_plan.dart';
 import 'package:login/pages/travel_bank.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../atoms/Pop_ups/automated_popup.dart';
+import '../atoms/Pop_ups/automated_popup_2.dart';
 import '../atoms/Pop_ups/home_screen_popup.dart';
 import '../atoms/Pop_ups/travel_bank_popup.dart';
 import '../atoms/budget_selector.dart';
@@ -99,8 +100,13 @@ class _HomeScreenState extends State<HomeScreen> {
                                     ),
                                     Text(
                                       'Your share of funding plan has been created. ',
-                                      style: textS416B,
                                       textAlign: TextAlign.center,
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.w400,
+                                        fontSize: 16,
+                                        fontFamily: 'Roboto',
+                                        color: Color(0xff222222)
+                                      ),
                                     ),
                                     SizedBox(
                                       height: 30,
@@ -161,15 +167,22 @@ class _HomeScreenState extends State<HomeScreen> {
                                           calculatedFunds = true,
                                           calculatingFunds = false
                                         });
-                                    // dynamic state = _menuKey.currentState;
-                                    // state.showButtonMenu();
                                     showModalBottomSheet(
                                         backgroundColor: Colors.transparent,
                                         isScrollControlled: true,
                                         context: context,
                                         builder: (context) {
                                           return HomeScreenPopup();
-                                        });
+                                        }
+                                    );
+                                    // showModalBottomSheet(
+                                    //     backgroundColor: Colors.transparent,
+                                    //     isScrollControlled: true,
+                                    //     context: context,
+                                    //     builder: (context) {
+                                    //       return HomeScreenPopup();
+                                    //     }
+                                    //   );
                                   });
                                 } else {
                                   setState(() {
@@ -191,7 +204,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   scrollDirection: Axis.vertical,
                   children: [
                     SizedBox(
-                      height: 10,
+                      height: 20,
                     ),
                     Center(child: Container(
                       width: screenWidth - 40,
@@ -314,16 +327,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                           context: context,
                                           clipBehavior: Clip.antiAliasWithSaveLayer,
                                           builder: (context) {
-                                            return Container(
-                                                width: screenWidth,
-                                                height: 607,
-                                                decoration: BoxDecoration(
-                                                    borderRadius: BorderRadius.only(
-                                                      topRight: Radius.circular(20.0),
-                                                      topLeft: Radius.circular(20.0), // Set the top-right radius
-                                                    ),
-                                                    color: Colors.white),
-                                                child: toggleValue == false ? AutomatedPopup() : HomeScreenPopup());
+                                            return toggleValue == false ? AutomatedPopup() : AutomatedPopup2();
                                           });
                                     },
                                     child: const Padding(

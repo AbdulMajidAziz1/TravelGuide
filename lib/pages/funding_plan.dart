@@ -371,7 +371,6 @@ class _FundingPlanState extends State<FundingPlan> {
           const SizedBox(
             height: 70,
           ),
-          const BottomLine()
         ],
       ),
     ));

@@ -6,14 +6,14 @@ import 'package:login/atoms/Pop_ups/text_in_circle.dart';
 import '../buttons/button_multi_color.dart';
 import '../circular_img.dart';
 
-class AutomatedPopup extends StatefulWidget {
-  const AutomatedPopup({super.key});
+class AutomatedPopup2 extends StatefulWidget {
+  const AutomatedPopup2({super.key});
 
   @override
-  State<AutomatedPopup> createState() => _AutomatedPopupState();
+  State<AutomatedPopup2> createState() => _AutomatedPopup2State();
 }
 
-class _AutomatedPopupState extends State<AutomatedPopup> {
+class _AutomatedPopup2State extends State<AutomatedPopup2> {
   final allMonths = [
     'January',
     'February',
@@ -46,7 +46,7 @@ class _AutomatedPopupState extends State<AutomatedPopup> {
     final screenWidth = MediaQuery.of(context).size.width;
     return Container(
       width: screenWidth,
-      height: 607,
+      height: 752,
       decoration: BoxDecoration(
           borderRadius: BorderRadius.only(
             topRight: Radius.circular(20.0),
@@ -67,11 +67,11 @@ class _AutomatedPopupState extends State<AutomatedPopup> {
                 Container(
                   height: 12,
                   decoration: const ShapeDecoration(shape:
-                    RoundedRectangleBorder(borderRadius:
-                      BorderRadius.only(topLeft: Radius.circular(16),
-                        topRight: Radius.circular(16),
-                      ),
-                    ),
+                  RoundedRectangleBorder(borderRadius:
+                  BorderRadius.only(topLeft: Radius.circular(16),
+                    topRight: Radius.circular(16),
+                  ),
+                  ),
                   ),
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
@@ -511,8 +511,8 @@ class _AutomatedPopupState extends State<AutomatedPopup> {
                 ),
                 SizedBox(height: 20,),
                 Container(
-                  height: 120,
-                  width: 283,
+                  height: 265,
+                  width: screenWidth -100,
                   decoration: BoxDecoration(
                       color: Color(0xffFBFBFC),
                       borderRadius: BorderRadius.circular(8),
@@ -530,34 +530,175 @@ class _AutomatedPopupState extends State<AutomatedPopup> {
                               style: textS612HBlack,
                             )),
                       ),
-                      Padding(
-                        padding: const EdgeInsets.fromLTRB(15, 10, 0, 0),
-                        child: Row(
+                      SizedBox(height: 20,),
+                      Expanded(
+                        child: ListView(
+                          scrollDirection: Axis.vertical,
                           children: [
-                            Text('Activities',
-                              style: textS612,
+                            Container(
+                              height: 65,
+                              width: screenWidth - 110,
+                              child: Column(
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
+                                    child: Row(
+                                      children: [
+                                        Text('Flights ',
+                                          style: textS12Bold
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.fromLTRB(15, 10, 0, 0),
+                                    child: Row(
+                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Text('5 monthly cycles from \nJanuary to May',
+                                          style: textS12,
+                                        ),
+                                        Padding(
+                                          padding: const EdgeInsets.fromLTRB(0, 16, 10, 0),
+                                          child: Text('Change',
+                                            style: textS410bl,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              ),
                             ),
-                          ],
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.fromLTRB(15, 10, 0, 0),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text('9 monthly cycles from\n February to November',
-                              style: textS12,
+                            SizedBox(height: 10),
+                            Container(
+                              height: 1,
+                              width: screenWidth - 140,
+                              color: Color(0xffF3F3F4),
                             ),
-                            Padding(
-                              padding: const EdgeInsets.fromLTRB(0, 16, 10, 0),
-                              child: Text('Change',
-                                style: textS410bl,
+                            SizedBox(height: 10),
+                            Container(
+                              height: 65,
+                              width: screenWidth - 110,
+                              child: Column(
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
+                                    child: Row(
+                                      children: [
+                                        Text('Stays',
+                                          style: textS12Bold
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.fromLTRB(15, 10, 0, 0),
+                                    child: Row(
+                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Text('9 monthly cycles from\nFebruary to November',
+                                          style: textS12,
+                                        ),
+                                        Padding(
+                                          padding: const EdgeInsets.fromLTRB(0, 16, 10, 0),
+                                          child: Text('Change',
+                                            style: textS410bl,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            SizedBox(height: 10),
+                            Container(
+                              height: 1,
+                              width: screenWidth - 130,
+                              color: Color(0xffF3F3F4),
+                            ),
+                            SizedBox(height: 10),
+                            Container(
+                              height: 65,
+                              width: screenWidth - 110,
+                              child: Column(
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
+                                    child: Row(
+                                      children: [
+                                        Text('Activities',
+                                          style: textS12Bold
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.fromLTRB(15, 10, 0, 0),
+                                    child: Row(
+                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Text('9 monthly cycles from\nFebruary to November',
+                                          style: textS12,
+                                        ),
+                                        Padding(
+                                          padding: const EdgeInsets.fromLTRB(0, 16, 10, 0),
+                                          child: Text('Change',
+                                            style: textS410bl,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            SizedBox(height: 10),
+                            Container(
+                              height: 1,
+                              width: screenWidth - 130,
+                              color: Color(0xffF3F3F4),
+                            ),
+                            SizedBox(height: 10),
+                            Container(
+                              height: 65,
+                              width: screenWidth - 110,
+                              child: Column(
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
+                                    child: Row(
+                                      children: [
+                                        Text('Meals & drinks',
+                                          style: textS12Bold
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.fromLTRB(15, 10, 0, 0),
+                                    child: Row(
+                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Text('10 monthly cycles from\nFebruary to November',
+                                          style: textS12,
+                                        ),
+                                        Padding(
+                                          padding: const EdgeInsets.fromLTRB(0, 16, 10, 0),
+                                          child: Text('Change',
+                                            style: textS410bl,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ],
                               ),
                             ),
                           ],
                         ),
                       ),
-
                     ],
                   ),
                 ),
@@ -565,10 +706,10 @@ class _AutomatedPopupState extends State<AutomatedPopup> {
                   height: 32,
                 ),
                 GestureDetector(
-                  onTap: (){
-                    Navigator.of(context).pop();
-                  },
-                  child: ButtonMulti(title: 'Ok'))
+                    onTap: (){
+                      Navigator.of(context).pop();
+                    },
+                    child: ButtonMulti(title: 'Ok'))
               ],
             ),
           ),

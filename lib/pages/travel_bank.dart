@@ -4,7 +4,6 @@ import 'package:login/atoms/Constant/constant.dart';
 import 'package:login/atoms/Lines/bottom_line.dart';
 import 'package:login/atoms/Lines/popup_line.dart';
 import 'package:login/atoms/Pop_ups/travel_bank_popup.dart';
-import 'package:login/atoms/Pop_ups/travel_bank_popup2.dart';
 import 'package:login/molecule/all_travels_topup.dart';
 import 'package:login/molecule/deadline_assistant.dart';
 import 'package:login/molecule/donut_chart.dart';
@@ -14,9 +13,6 @@ import 'package:login/molecule/pg1_molecule/moL2_texts.dart';
 import 'package:login/molecule/pg1_molecule/moL4_travel_fund.dart';
 import 'package:login/molecule/transactions.dart';
 import 'package:login/molecule/travel_bank_selector.dart';
-import 'package:login/pages/funding_plan.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-import '../atoms/buttons/button_multi_color.dart';
 
 class TravelBankScreen extends StatefulWidget {
   const TravelBankScreen({super.key});
@@ -89,12 +85,20 @@ class TravelBankScreenState extends State<TravelBankScreen> {
                     ),
                     Container(
                         width: 390,
-                        height: 296,
+                        height: 330,
                         decoration: BoxDecoration(
                           color: Color(0xffFFFFFF),
                           borderRadius: BorderRadius.circular(4),
                         ),
-                        child: DonutChart()),
+                        child: Column(
+                          children: [
+                            DonutChart(),
+                            Text('Your next auto top-up cycle is \$114 on the 20th of February.',
+                              style: textS3,
+                            )
+                          ],
+                        )
+                    ),
                     SizedBox(
                       height: 24,
                     ),
@@ -173,17 +177,14 @@ class TravelBankScreenState extends State<TravelBankScreen> {
                                 ),
                                 SizedBox(
                                   height: 103.25,
-                                  width: widgetsWidth - 100,
+                                  width: widgetsWidth - 50,
                                   child: ListView.builder(
                                       scrollDirection: Axis.horizontal,
                                       itemCount: 12,
                                       itemBuilder: (context, index) {
                                         final progressValue =
                                             (index + 1) * 0.091;
-                                        final progressColor = index == 0
-                                            ? const Color(0xFF32CB5E)
-                                            : Colors.black;
-
+                                        final progressColor = index == 0 ? const Color(0xFF32CB5E) : Colors.black;
                                         if (index == 11) {
                                           return Column(
                                             children: [
@@ -204,8 +205,7 @@ class TravelBankScreenState extends State<TravelBankScreen> {
                                                     width: 52.25,
                                                     height: 52.25,
                                                     child: Container(
-                                                      decoration:
-                                                          ShapeDecoration(
+                                                      decoration: ShapeDecoration(
                                                         color: const Color(0xFFF3F3F4),
                                                         shape: RoundedRectangleBorder(
                                                           borderRadius: BorderRadius.circular(479.36),
@@ -215,26 +215,13 @@ class TravelBankScreenState extends State<TravelBankScreen> {
                                                         child: Container(
                                                           height: 25,
                                                           width: 25,
-                                                          decoration:
-                                                              ShapeDecoration(
-                                                            color:
-                                                                Color.fromARGB(
-                                                                    255,
-                                                                    255,
-                                                                    255,
-                                                                    255),
-                                                            shape:
-                                                                RoundedRectangleBorder(
-                                                              borderRadius:
-                                                                  BorderRadius
-                                                                      .circular(
-                                                                          479.36),
+                                                          decoration: ShapeDecoration(color: Color.fromARGB(255, 255, 255, 255),
+                                                            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(479.36),
                                                             ),
                                                           ),
                                                           child: Center(
                                                             child: Image(
-                                                              image: AssetImage(
-                                                                  'assets/open_details.png'),
+                                                              image: AssetImage('assets/open_details.png'),
                                                               height: 16,
                                                               width: 16,
                                                             ),
@@ -250,47 +237,28 @@ class TravelBankScreenState extends State<TravelBankScreen> {
                                         return Row(
                                           children: [
                                             SizedBox(
-                                              width: 75,
+                                              width: 64,
                                               height: 103.25,
                                               child: Column(
                                                 mainAxisSize: MainAxisSize.min,
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment.start,
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.center,
+                                                mainAxisAlignment: MainAxisAlignment.start,
+                                                crossAxisAlignment: CrossAxisAlignment.center,
                                                 children: [
                                                   Container(
                                                     width: 52.25,
                                                     height: 52.25,
-                                                    padding:
-                                                        const EdgeInsets.only(
-                                                      top: 5.23,
-                                                      left: 5.23,
-                                                      right: 5.22,
-                                                      bottom: 5.22,
-                                                    ),
-                                                    clipBehavior:
-                                                        Clip.antiAlias,
+                                                    padding: const EdgeInsets.only(top: 5.23,bottom: 5.22,),
+                                                    clipBehavior: Clip.antiAlias,
                                                     decoration: ShapeDecoration(
-                                                      color: const Color(
-                                                          0xFFE6F3E8),
-                                                      shape:
-                                                          RoundedRectangleBorder(
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(
-                                                                    479.36),
+                                                      color: const Color(0xFFE6F3E8),
+                                                      shape: RoundedRectangleBorder(
+                                                        borderRadius: BorderRadius.circular(479.36),
                                                       ),
                                                     ),
                                                     child: Row(
-                                                      mainAxisSize:
-                                                          MainAxisSize.min,
-                                                      mainAxisAlignment:
-                                                          MainAxisAlignment
-                                                              .center,
-                                                      crossAxisAlignment:
-                                                          CrossAxisAlignment
-                                                              .center,
+                                                      mainAxisSize: MainAxisSize.min,
+                                                      mainAxisAlignment: MainAxisAlignment.center,
+                                                      crossAxisAlignment: CrossAxisAlignment.center,
                                                       children: [
                                                         SizedBox(
                                                           width: 41.80,
@@ -304,26 +272,16 @@ class TravelBankScreenState extends State<TravelBankScreen> {
                                                                   height: 41.8,
                                                                   width: 41.8,
                                                                   child: Center(
-                                                                    child: TweenAnimationBuilder<
-                                                                        double>(
-                                                                      tween: Tween<
-                                                                              double>(
-                                                                          begin:
-                                                                              0.0,
-                                                                          end:
-                                                                              progressValue),
-                                                                      duration: const Duration(
-                                                                          milliseconds:
-                                                                              1000),
+                                                                    child: TweenAnimationBuilder<double>(
+                                                                      tween: Tween<double>(
+                                                                          begin: 0.0,
+                                                                          end: progressValue),
+                                                                      duration: const Duration(milliseconds: 1000),
                                                                       builder: (context, value, _) => CircularProgressIndicator(
-                                                                          strokeWidth:
-                                                                              8,
-                                                                          color:
-                                                                              progressColor,
-                                                                          semanticsLabel:
-                                                                              'Circular progress indicator',
-                                                                          value:
-                                                                              value),
+                                                                          strokeWidth: 8,
+                                                                          color: progressColor,
+                                                                          semanticsLabel: 'Circular progress indicator',
+                                                                          value: value),
                                                                     ),
                                                                   ),
                                                                 ),
@@ -331,53 +289,31 @@ class TravelBankScreenState extends State<TravelBankScreen> {
                                                               Positioned(
                                                                 left: 7.84,
                                                                 top: 7.84,
-                                                                child:
-                                                                    Container(
+                                                                child: Container(
                                                                   width: 26.12,
                                                                   height: 26.12,
-                                                                  padding: const EdgeInsets
-                                                                          .only(
-                                                                      top: 5.22,
-                                                                      bottom:
-                                                                          4.90),
-                                                                  clipBehavior:
-                                                                      Clip.antiAlias,
-                                                                  decoration:
-                                                                      ShapeDecoration(
-                                                                    color: Colors
-                                                                        .white,
-                                                                    shape:
-                                                                        RoundedRectangleBorder(
-                                                                      borderRadius:
-                                                                          BorderRadius.circular(
-                                                                              188.10),
+                                                                  padding: const EdgeInsets.only(top: 5.22, bottom: 4.90),
+                                                                  clipBehavior: Clip.antiAlias,
+                                                                  decoration: ShapeDecoration(color: Colors.white,
+                                                                    shape: RoundedRectangleBorder(borderRadius:
+                                                                          BorderRadius.circular(188.10),
                                                                     ),
                                                                   ),
                                                                   child: Row(
-                                                                    mainAxisSize:
-                                                                        MainAxisSize
-                                                                            .min,
-                                                                    mainAxisAlignment:
-                                                                        MainAxisAlignment
-                                                                            .center,
-                                                                    crossAxisAlignment:
-                                                                        CrossAxisAlignment
-                                                                            .center,
+                                                                    mainAxisSize: MainAxisSize.min,
+                                                                    mainAxisAlignment: MainAxisAlignment.center,
+                                                                    crossAxisAlignment: CrossAxisAlignment.center,
                                                                     children: [
                                                                       Countup(
-                                                                        begin:
-                                                                            0,
-                                                                        end: index.toDouble() +
-                                                                            1,
-                                                                        duration:
-                                                                            Duration(seconds: 2),
+                                                                        begin: 0,
+                                                                        end: index.toDouble() + 1,
+                                                                        duration: Duration(seconds: 2),
                                                                         separator:
                                                                             ',',
                                                                         style:
                                                                             TextStyle(
                                                                           color: index == 0
-                                                                              ? const Color(0xFF32CB5E)
-                                                                              : Colors.black,
+                                                                              ? const Color(0xFF32CB5E) : Colors.black,
                                                                           fontSize:
                                                                               10,
                                                                           fontFamily:
@@ -419,7 +355,7 @@ class TravelBankScreenState extends State<TravelBankScreen> {
                                                                 textAlign: TextAlign.center,
                                                                 style:
                                                                   TextStyle(color: Color(0xFF757575),
-                                                                  fontSize: 10,
+                                                                  fontSize: 9,
                                                                   fontFamily: 'Inter',
                                                                   fontWeight: FontWeight.w600,
                                                                 ),

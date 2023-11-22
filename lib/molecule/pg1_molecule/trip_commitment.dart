@@ -26,7 +26,7 @@ class _TripCommitmentState extends State<TripCommitment> {
       ),
       child: Column(
         children: [
-          const Row(
+          Row(
             children: [
               Padding(
                 padding: EdgeInsets.only(top: 18, left: 16),
@@ -96,7 +96,7 @@ class _TripCommitmentState extends State<TripCommitment> {
           Row(
             children: [
               Padding(
-                padding: const EdgeInsets.only(left: 16.0),
+                padding: EdgeInsets.only(left: 16),
                 child: Text(
                   'Your automated trip funding plan of \$1,265',
                   style: textS612,

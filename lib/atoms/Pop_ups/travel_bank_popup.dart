@@ -22,7 +22,9 @@ class TravelBankPopupState extends State<TravelBankPopup> {
 
   void whereTo() async{
     var share = await SharedPreferences.getInstance();
-    istrue = share.getBool(KEYLOGIN);
+    setState(() {
+      istrue = share.getBool(KEYLOGIN);
+    });
     print(share.getBool(KEYLOGIN));
   }
   @override

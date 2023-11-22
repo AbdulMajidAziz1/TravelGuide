@@ -23,7 +23,9 @@ class DeadLineAssistantState extends State<DeadLineAssistant> {
 
   void whereTo() async{
     var share = await SharedPreferences.getInstance();
-    istrue = share.getBool(KEYLOGIN);
+    setState(() {
+      istrue = share.getBool(KEYLOGIN);
+    });
     print(share.getBool(KEYLOGIN));
   }
   @override
@@ -387,7 +389,7 @@ class DeadLineAssistantState extends State<DeadLineAssistant> {
                             ],
                           )),
                       Padding(
-                        padding: const EdgeInsets.only(right: 10),
+                        padding: const EdgeInsets.only(right: 0),
                         child: SizedBox(
                           width: 169,
                           child: Row(
@@ -589,7 +591,3 @@ class DeadLineAssistantState extends State<DeadLineAssistant> {
     );
   }
 }
-
-
-
-// DeadLineAssistant

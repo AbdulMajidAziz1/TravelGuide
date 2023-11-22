@@ -1,3 +1,4 @@
+import 'package:countup/countup.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../../atoms/Constant/constant.dart';
@@ -40,9 +41,8 @@ class _BudgetSelectorState extends State<BudgetSelector> {
               '£',
               style: textS632B,
             ),
-            Text(
-              '$formattedNumber ',
-              style: textS632B,
+            Text('$formattedNumber',
+                style: textS632B
             ),
             Text(
               '1 adult, 0 Children',
@@ -157,7 +157,7 @@ class _BudgetSelectorState extends State<BudgetSelector> {
                       style: textS3,
                     ) :
                     Text(
-                      'above £5,000',
+                      '£5,500 - 10000',
                       style: textS3,
                     ) ,
               Text(
@@ -227,7 +227,7 @@ class _BudgetSelectorState extends State<BudgetSelector> {
           ),
         ),
         SizedBox(
-          height: 15,
+          height: 20,
         ),
         Text(
           'Update children',
